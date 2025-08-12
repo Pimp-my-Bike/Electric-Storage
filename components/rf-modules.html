@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>רכיבי RF - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .rf-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .wifi { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .bluetooth { background: linear-gradient(45deg, #0000FF, #4169E1); }
+        .lora { background: linear-gradient(45deg, #4B0082, #800080); }
+        .zigbee { background: linear-gradient(45deg, #32CD32, #228B22); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pin-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .pin-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+            text-align: center;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: left;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>רכיבי RF - מדריך מקיף</h1>
+        <p>מידע מפורט על מודולי RF, WiFi, Bluetooth, LoRa ו-ZigBee</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+            <a href="displays.html">צגים</a>
+            <a href="measurement-tools.html">כלי מדידה</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי מודולי RF עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מודול</th>
+                        <th>תמונה</th>
+                        <th>טווח תדר</th>
+                        <th>טווח תקשורת</th>
+                        <th>קצב נתונים</th>
+                        <th>צריכת חשמל</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WiFi</td>
+                        <td><div class="rf-image wifi"></div></td>
+                        <td>2.4GHz, 5GHz</td>
+                        <td>10-100 מטר</td>
+                        <td>11Mbps-1Gbps</td>
+                        <td>גבוהה</td>
+                        <td>מהיר, נפוץ</td>
+                        <td>צריכת חשמל גבוהה</td>
+                    </tr>
+                    <tr>
+                        <td>Bluetooth</td>
+                        <td><div class="rf-image bluetooth"></div></td>
+                        <td>2.4GHz</td>
+                        <td>10-100 מטר</td>
+                        <td>1Mbps-50Mbps</td>
+                        <td>בינונית</td>
+                        <td>חסכוני, נפוץ</td>
+                        <td>טווח קצר</td>
+                    </tr>
+                    <tr>
+                        <td>LoRa</td>
+                        <td><div class="rf-image lora"></div></td>
+                        <td>433MHz, 868MHz, 915MHz</td>
+                        <td>1-15 ק"מ</td>
+                        <td>0.3-37.5kbps</td>
+                        <td>נמוכה מאוד</td>
+                        <td>טווח ארוך, חסכוני</td>
+                        <td>קצב נתונים נמוך</td>
+                    </tr>
+                    <tr>
+                        <td>ZigBee</td>
+                        <td><div class="rf-image zigbee"></div></td>
+                        <td>2.4GHz</td>
+                        <td>10-100 מטר</td>
+                        <td>250kbps</td>
+                        <td>נמוכה</td>
+                        <td>רשתות רשת, חסכוני</td>
+                        <td>קצב נתונים נמוך</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מודולי WiFi נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>סטנדרט WiFi</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</th>
+                        <th>ממשק</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ESP8266</td>
+                        <td>802.11 b/g/n</td>
+                        <td>3.3V</td>
+                        <td>80mA (עבודה)<br>200mA (שידור)</td>
+                        <td>UART, GPIO</td>
+                        <td>₪25-50</td>
+                    </tr>
+                    <tr>
+                        <td>ESP32</td>
+                        <td>802.11 b/g/n</td>
+                        <td>3.3V</td>
+                        <td>100mA (עבודה)<br>250mA (שידור)</td>
+                        <td>UART, SPI, I2C, GPIO</td>
+                        <td>₪40-80</td>
+                    </tr>
+                    <tr>
+                        <td>ESP32-S3</td>
+                        <td>802.11 b/g/n</td>
+                        <td>3.3V</td>
+                        <td>120mA (עבודה)<br>300mA (שידור)</td>
+                        <td>UART, SPI, I2C, GPIO, USB</td>
+                        <td>₪60-100</td>
+                    </tr>
+                    <tr>
+                        <td>ESP32-C3</td>
+                        <td>802.11 b/g/n</td>
+                        <td>3.3V</td>
+                        <td>80mA (עבודה)<br>200mA (שידור)</td>
+                        <td>UART, SPI, I2C, GPIO</td>
+                        <td>₪35-70</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מודולי Bluetooth נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>גרסת Bluetooth</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</th>
+                        <th>ממשק</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HC-05</td>
+                        <td>2.0</td>
+                        <td>3.3V-6V</td>
+                        <td>30mA (עבודה)<br>40mA (שידור)</td>
+                        <td>UART</td>
+                        <td>₪15-30</td>
+                    </tr>
+                    <tr>
+                        <td>HC-06</td>
+                        <td>2.0</td>
+                        <td>3.3V-6V</td>
+                        <td>30mA (עבודה)<br>40mA (שידור)</td>
+                        <td>UART</td>
+                        <td>₪15-30</td>
+                    </tr>
+                    <tr>
+                        <td>nRF24L01</td>
+                        <td>2.4GHz RF</td>
+                        <td>1.9V-3.6V</td>
+                        <td>12mA (עבודה)<br>115mA (שידור)</td>
+                        <td>SPI</td>
+                        <td>₪20-40</td>
+                    </tr>
+                    <tr>
+                        <td>CC2541</td>
+                        <td>4.0 BLE</td>
+                        <td>2V-3.6V</td>
+                        <td>15mA (עבודה)<br>25mA (שידור)</td>
+                        <td>UART, SPI</td>
+                        <td>₪30-60</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מודולי LoRa נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>טווח תדר</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</th>
+                        <th>טווח תקשורת</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SX1278</td>
+                        <td>433MHz</td>
+                        <td>1.8V-3.7V</td>
+                        <td>10mA (עבודה)<br>120mA (שידור)</td>
+                        <td>3-5 ק"מ</td>
+                        <td>₪25-50</td>
+                    </tr>
+                    <tr>
+                        <td>SX1276</td>
+                        <td>868MHz</td>
+                        <td>1.8V-3.7V</td>
+                        <td>10mA (עבודה)<br>120mA (שידור)</td>
+                        <td>5-8 ק"מ</td>
+                        <td>₪30-60</td>
+                    </tr>
+                    <tr>
+                        <td>SX1279</td>
+                        <td>915MHz</td>
+                        <td>1.8V-3.7V</td>
+                        <td>10mA (עבודה)<br>120mA (שידור)</td>
+                        <td>8-15 ק"מ</td>
+                        <td>₪35-70</td>
+                    </tr>
+                    <tr>
+                        <td>RFM95W</td>
+                        <td>433MHz</td>
+                        <td>1.8V-3.7V</td>
+                        <td>10mA (עבודה)<br>120mA (שידור)</td>
+                        <td>3-5 ק"מ</td>
+                        <td>₪20-40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי מודולי RF</h2>
+            
+            <h3>ESP8266/ESP32</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>3.3V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>TX</h4>
+                    <p>שידור</p>
+                    <p>UART</p>
+                </div>
+                <div class="pin-card">
+                    <h4>RX</h4>
+                    <p>קבלה</p>
+                    <p>UART</p>
+                </div>
+                <div class="pin-card">
+                    <h4>EN</h4>
+                    <p>הפעלה</p>
+                    <p>Enable</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GPIO0</h4>
+                    <p>פין כללי</p>
+                    <p>Boot Mode</p>
+                </div>
+            </div>
+
+            <h3>HC-05 (Bluetooth)</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>3.3V-6V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>TXD</h4>
+                    <p>שידור</p>
+                    <p>UART</p>
+                </div>
+                <div class="pin-card">
+                    <h4>RXD</h4>
+                    <p>קבלה</p>
+                    <p>UART</p>
+                </div>
+                <div class="pin-card">
+                    <h4>STATE</h4>
+                    <p>מצב חיבור</p>
+                    <p>Status</p>
+                </div>
+                <div class="pin-card">
+                    <h4>EN</h4>
+                    <p>הפעלה</p>
+                    <p>Enable</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלים בסיסיים עם מודולי RF</h2>
+            
+            <h3>ESP8266 עם Arduino</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>ESP8266 (NodeMCU או Wemos D1 Mini)</li>
+                    <li>Arduino (כל דגם)</li>
+                    <li>נגד 10KΩ (נגד משיכה)</li>
+                    <li>קבל 0.1µF (עדכון)</li>
+                    <li>כבלים לחיבור</li>
+                </ul>
+            </div>
+
+            <h3>HC-05 עם Arduino</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>HC-05 Bluetooth Module</li>
+                    <li>Arduino (כל דגם)</li>
+                    <li>נגד 10KΩ (נגד משיכה)</li>
+                    <li>קבל 0.1µF (עדכון)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>דוגמאות קוד</h2>
+            
+            <h3>קוד ESP8266 - חיבור WiFi</h3>
+            <div class="code-example">
+                <pre>
+#include &lt;ESP8266WiFi.h&gt;
+
+const char* ssid = "שם_הרשת_שלך";
+const char* password = "סיסמה_שלך";
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  
+  Serial.println("");
+  Serial.println("WiFi מחובר!");
+  Serial.println("כתובת IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  // הקוד שלך כאן
+}
+                </pre>
+            </div>
+
+            <h3>קוד HC-05 - תקשורת Bluetooth</h3>
+            <div class="code-example">
+                <pre>
+#include &lt;SoftwareSerial.h&gt;
+
+SoftwareSerial BTSerial(2, 3); // RX, TX
+
+void setup() {
+  Serial.begin(9600);
+  BTSerial.begin(9600);
+  Serial.println("Bluetooth מוכן!");
+}
+
+void loop() {
+  if (BTSerial.available()) {
+    Serial.write(BTSerial.read());
+  }
+  
+  if (Serial.available()) {
+    BTSerial.write(Serial.read());
+  }
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>ספריות Arduino נפוצות</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מודול</th>
+                        <th>ספרייה</th>
+                        <th>הורדה</th>
+                        <th>דוגמאות</th>
+                        <th>תיעוד</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ESP8266</td>
+                        <td>ESP8266WiFi</td>
+                        <td>מובנה</td>
+                        <td>10+ דוגמאות</td>
+                        <td>מלא</td>
+                    </tr>
+                    <tr>
+                        <td>ESP32</td>
+                        <td>WiFi</td>
+                        <td>מובנה</td>
+                        <td>15+ דוגמאות</td>
+                        <td>מלא</td>
+                    </tr>
+                    <tr>
+                        <td>LoRa</td>
+                        <td>LoRa</td>
+                        <td>Library Manager</td>
+                        <td>8 דוגמאות</td>
+                        <td>טוב</td>
+                    </tr>
+                    <tr>
+                        <td>nRF24L01</td>
+                        <td>RF24</td>
+                        <td>Library Manager</td>
+                        <td>12 דוגמאות</td>
+                        <td>מלא</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ אזהרות חשובות</h3>
+            <ul>
+                <li><strong>תדרים:</strong> בדוק את התדרים המותרים במדינה שלך</li>
+                <li><strong>הספק:</strong> אל תחרוג מההספק המקסימלי המותר</li>
+                <li><strong>אנטנות:</strong> השתמש באנטנות מתאימות</li>
+                <li><strong>מרחק:</strong> שים לב למגבלות המרחק</li>
+                <li><strong>אבטחה:</strong> השתמש בהצפנה כשנדרש</li>
+                <li><strong>תעודה:</strong> בדוק אם נדרשת תעודת רישוי</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם מודולי RF</h2>
+            <ul>
+                <li><strong>אנטנות:</strong> השתמש באנטנות מתאימות לתדר העבודה</li>
+                <li><strong>מרחק:</strong> שים לב למגבלות המרחק של כל מודול</li>
+                <li><strong>עדכון:</strong> השתמש בקבלי עדכון קרוב למודול</li>
+                <li><strong>אדמה:</strong> וודא חיבור אדמה טוב</li>
+                <li><strong>הספק:</strong> תמיד בדוק את הספק האספקה הנדרש</li>
+                <li><strong>תיעוד:</strong> קרא את הדאטאשיט לפני השימוש</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>יישומים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>מודול מומלץ</th>
+                        <th>טווח נדרש</th>
+                        <th>קצב נתונים נדרש</th>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>בית חכם</td>
+                        <td>WiFi (ESP32)</td>
+                        <td>10-50 מטר</td>
+                        <td>גבוה</td>
+                        <td>תאורה, חימום, אבטחה</td>
+                    </tr>
+                    <tr>
+                        <td>מכשירים ניידים</td>
+                        <td>Bluetooth (HC-05)</td>
+                        <td>10-100 מטר</td>
+                        <td>בינוני</td>
+                        <td>שעונים, אוזניות, חיישנים</td>
+                    </tr>
+                    <tr>
+                        <td>חקלאות חכמה</td>
+                        <td>LoRa (SX1278)</td>
+                        <td>1-15 ק"מ</td>
+                        <td>נמוך</td>
+                        <td>חיישני קרקע, מזג אוויר</td>
+                    </tr>
+                    <tr>
+                        <td>תעשייה</td>
+                        <td>ZigBee (XBee)</td>
+                        <td>10-100 מטר</td>
+                        <td>בינוני</td>
+                        <td>בקרת מכונות, ניטור</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - רכיבי RF</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>קבלים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .capacitor-image {
+            width: 100px;
+            height: 60px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+        }
+        .ceramic { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .electrolytic { background: linear-gradient(45deg, #000000, #333333); }
+        .tantalum { background: linear-gradient(45deg, #8B0000, #DC143C); }
+        .film { background: linear-gradient(45deg, #006400, #228B22); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>קבלים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי קבלים, ערכים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי קבלים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג קבל</th>
+                        <th>תמונה</th>
+                        <th>טווח ערכים</th>
+                        <th>מתח עבודה</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                        <th>שימושים נפוצים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>קבל קרמי</td>
+                        <td><div class="capacitor-image ceramic"></div></td>
+                        <td>1pF - 100µF</td>
+                        <td>50V - 2KV</td>
+                        <td>זול, יציב, קטן</td>
+                        <td>סבילות נמוכה</td>
+                        <td>עדכון, סינון</td>
+                    </tr>
+                    <tr>
+                        <td>קבל אלקטרוליטי</td>
+                        <td><div class="capacitor-image electrolytic"></div></td>
+                        <td>0.1µF - 1F</td>
+                        <td>6.3V - 450V</td>
+                        <td>ערך גבוה, זול</td>
+                        <td>דליפה, קוטביות</td>
+                        <td>אחסון אנרגיה</td>
+                    </tr>
+                    <tr>
+                        <td>קבל טנטלום</td>
+                        <td><div class="capacitor-image tantalum"></div></td>
+                        <td>0.1µF - 1000µF</td>
+                        <td>2.5V - 50V</td>
+                        <td>יציב, קטן</td>
+                        <td>יקר, רגיש</td>
+                        <td>מעגלים דיגיטליים</td>
+                    </tr>
+                    <tr>
+                        <td>קבל פולימר</td>
+                        <td><div class="capacitor-image film"></div></td>
+                        <td>1nF - 100µF</td>
+                        <td>16V - 400V</td>
+                        <td>יציב, דליפה נמוכה</td>
+                        <td>יקר, גדול</td>
+                        <td>מעגלי RF</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>ערכי קבלים נפוצים</h2>
+            <p>קבלים מגיעים בערכים סטנדרטיים לפי סדרת E:</p>
+            
+            <h3>סדרת E6 (±20%)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.0</td>
+                        <td>1.5</td>
+                        <td>2.2</td>
+                        <td>3.3</td>
+                        <td>4.7</td>
+                        <td>6.8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>סדרת E12 (±10%)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                        <th>ערך</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.0</td>
+                        <td>1.2</td>
+                        <td>1.5</td>
+                        <td>1.8</td>
+                        <td>2.2</td>
+                        <td>2.7</td>
+                        <td>3.3</td>
+                        <td>3.9</td>
+                        <td>4.7</td>
+                        <td>5.6</td>
+                        <td>6.8</td>
+                        <td>8.2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>קריאת ערכי קבלים</h2>
+            
+            <h3>קבלים קרמיים</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דוגמה</th>
+                        <th>קוד מספרי</th>
+                        <th>ערך בפיקופארד</th>
+                        <th>ערך במיקרופארד</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>104</td>
+                        <td>10 + 4 אפסים</td>
+                        <td>100,000pF</td>
+                        <td>0.1µF</td>
+                    </tr>
+                    <tr>
+                        <td>223</td>
+                        <td>22 + 3 אפסים</td>
+                        <td>22,000pF</td>
+                        <td>0.022µF</td>
+                    </tr>
+                    <tr>
+                        <td>472</td>
+                        <td>47 + 2 אפסים</td>
+                        <td>4,700pF</td>
+                        <td>0.0047µF</td>
+                    </tr>
+                    <tr>
+                        <td>101</td>
+                        <td>10 + 1 אפס</td>
+                        <td>100pF</td>
+                        <td>0.0001µF</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>קבלים אלקטרוליטיים</h3>
+            <p>קבלים אלקטרוליטיים מציגים את הערך ישירות על הגוף:</p>
+            <ul>
+                <li><strong>100µF 25V:</strong> 100 מיקרופארד, מתח עבודה מקסימלי 25 וולט</li>
+                <li><strong>2200µF 16V:</strong> 2200 מיקרופארד, מתח עבודה מקסימלי 16 וולט</li>
+                <li><strong>47µF 50V:</strong> 47 מיקרופארד, מתח עבודה מקסימלי 50 וולט</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>שימושים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>שימוש</th>
+                        <th>סוג קבל מומלץ</th>
+                        <th>ערך טיפוסי</th>
+                        <th>הסבר</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>עדכון (Decoupling)</td>
+                        <td>קרמי</td>
+                        <td>0.1µF</td>
+                        <td>מספק אנרגיה מהירה למעגלים דיגיטליים</td>
+                    </tr>
+                    <tr>
+                        <td>סינון תדר נמוך</td>
+                        <td>אלקטרוליטי</td>
+                        <td>10µF - 1000µF</td>
+                        <td>מסנן רעשים בתדרים נמוכים</td>
+                    </tr>
+                    <tr>
+                        <td>מעגלי RF</td>
+                        <td>פולימר</td>
+                        <td>1nF - 100nF</td>
+                        <td>יציבות גבוהה בתדרים גבוהים</td>
+                    </tr>
+                    <tr>
+                        <td>אחסון אנרגיה</td>
+                        <td>אלקטרוליטי</td>
+                        <td>100µF - 1F</td>
+                        <td>מספק אנרגיה במעגלי כוח</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לבחירת קבלים</h2>
+            <ul>
+                <li><strong>מתח עבודה:</strong> תמיד בחר קבל עם מתח עבודה גבוה מהמתח במעגל</li>
+                <li><strong>ערך:</strong> השתמש בערך הקרוב ביותר מהסדרות הסטנדרטיות</li>
+                <li><strong>סוג:</strong> בחר לפי השימוש - קרמי לעדכון, אלקטרוליטי לאחסון</li>
+                <li><strong>סבילות:</strong> עבור רוב השימושים ±10% מספיק</li>
+                <li><strong>טמפרטורה:</strong> שים לב לטווח הטמפרטורה של הקבל</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - קבלים</p>
+    </footer>
+</body>
+</html> 

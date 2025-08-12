@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>חיישנים אלקטרוניים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .sensor-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .temp { background: linear-gradient(45deg, #FF6B6B, #FF8E8E); }
+        .distance { background: linear-gradient(45deg, #4ECDC4, #7FDBDA); }
+        .motion { background: linear-gradient(45deg, #45B7D1, #96CEB4); }
+        .light { background: linear-gradient(45deg, #FFD700, #FFA500); }
+        .humidity { background: linear-gradient(45deg, #87CEEB, #4682B4); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pin-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .pin-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #004466;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>חיישנים אלקטרוניים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי חיישנים, חיבורים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי חיישנים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג חיישן</th>
+                        <th>תמונה</th>
+                        <th>פלט</th>
+                        <th>טווח מדידה</th>
+                        <th>דיוק</th>
+                        <th>שימושים נפוצים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>חיישן טמפרטורה</td>
+                        <td><div class="sensor-image temp"></div></td>
+                        <td>אנלוגי/דיגיטלי</td>
+                        <td>-55°C עד 150°C</td>
+                        <td>±0.5°C</td>
+                        <td>בקרת טמפרטורה, ניטור סביבה</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן מרחק</td>
+                        <td><div class="sensor-image distance"></div></td>
+                        <td>אנלוגי/דיגיטלי</td>
+                        <td>2cm עד 400cm</td>
+                        <td>±1cm</td>
+                        <td>רובוטיקה, מערכות חניה</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן תנועה</td>
+                        <td><div class="sensor-image motion"></div></td>
+                        <td>דיגיטלי</td>
+                        <td>120° זווית</td>
+                        <td>±10°</td>
+                        <td>אבטחה, תאורה אוטומטית</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן אור</td>
+                        <td><div class="sensor-image light"></div></td>
+                        <td>אנלוגי</td>
+                        <td>1-1000 lux</td>
+                        <td>±10%</td>
+                        <td>בקרת תאורה, מצלמות</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן לחות</td>
+                        <td><div class="sensor-image humidity"></div></td>
+                        <td>דיגיטלי</td>
+                        <td>20-90% RH</td>
+                        <td>±5%</td>
+                        <td>בקרת אקלים, חממות</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיישני טמפרטורה נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>סוג</th>
+                        <th>טווח טמפרטורה</th>
+                        <th>דיוק</th>
+                        <th>מתח אספקה</td>
+                        <th>פלט</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LM35</td>
+                        <td>אנלוגי</td>
+                        <td>-55°C עד 150°C</td>
+                        <td>±0.5°C</td>
+                        <td>4V-30V</td>
+                        <td>10mV/°C</td>
+                    </tr>
+                    <tr>
+                        <td>DS18B20</td>
+                        <td>דיגיטלי</td>
+                        <td>-55°C עד 125°C</td>
+                        <td>±0.5°C</td>
+                        <td>3V-5.5V</td>
+                        <td>OneWire</td>
+                    </tr>
+                    <tr>
+                        <td>DHT22</td>
+                        <td>דיגיטלי</td>
+                        <td>-40°C עד 80°C</td>
+                        <td>±0.5°C</td>
+                        <td>3.3V-6V</td>
+                        <td>Digital</td>
+                    </tr>
+                    <tr>
+                        <td>BMP280</td>
+                        <td>דיגיטלי</td>
+                        <td>-40°C עד 85°C</td>
+                        <td>±0.01°C</td>
+                        <td>1.71V-3.6V</td>
+                        <td>I2C/SPI</td>
+                    </tr>
+                    <tr>
+                        <td>K-Type</td>
+                        <td>תרמוקופל</td>
+                        <td>-200°C עד 1350°C</td>
+                        <td>±2.2°C</td>
+                        <td>-</td>
+                        <td>מיקרו-וולט</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיישני מרחק</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>עקרון פעולה</th>
+                        <th>טווח מדידה</th>
+                        <th>דיוק</th>
+                        <th>מתח אספקה</th>
+                        <th>זמן מדידה</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>אולטראסוני</td>
+                        <td>2cm-400cm</td>
+                        <td>±3mm</td>
+                        <td>5V</td>
+                        <td>15ms</td>
+                    </tr>
+                    <tr>
+                        <td>VL53L0X</td>
+                        <td>לייזר</td>
+                        <td>0.1m-2m</td>
+                        <td>±3mm</td>
+                        <td>2.8V-3.6V</td>
+                        <td>30ms</td>
+                    </tr>
+                    <tr>
+                        <td>Sharp GP2Y0A21</td>
+                        <td>אינפרא-אדום</td>
+                        <td>10cm-80cm</td>
+                        <td>±1cm</td>
+                        <td>4.5V-5.5V</td>
+                        <td>39ms</td>
+                    </tr>
+                    <tr>
+                        <td>VL6180</td>
+                        <td>Time-of-Flight</td>
+                        <td>0.1m-1m</td>
+                        <td>±1mm</td>
+                        <td>2.8V-3.6V</td>
+                        <td>10ms</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי חיישנים</h2>
+            
+            <h3>חיישן HC-SR04 (אולטראסוני)</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>5V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>TRIG</h4>
+                    <p>פין הפעלה</p>
+                    <p>קלט דיגיטלי</p>
+                </div>
+                <div class="pin-card">
+                    <h4>ECHO</h4>
+                    <p>פין תגובה</p>
+                    <p>פלט דיגיטלי</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+            </div>
+
+            <h3>חיישן DHT22 (טמפרטורה ולחות)</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>3.3V-6V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>DATA</h4>
+                    <p>פין נתונים</p>
+                    <p>OneWire</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלים בסיסיים עם חיישנים</h2>
+            
+            <h3>חיישן טמפרטורה LM35</h3>
+            <div class="circuit-diagram">
+                <h4>מעגל בסיסי עם LM35</h4>
+                <p><strong>רכיבים נדרשים:</strong></p>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>LM35 - חיישן טמפרטורה</li>
+                    <li>נגד 10KΩ - נגד משיכה</li>
+                    <li>קבל 0.1µF - קבל עדכון</li>
+                    <li>מיקרו-בקר או ADC לקריאת הערך</li>
+                </ul>
+            </div>
+
+            <h3>חיישן מרחק HC-SR04</h3>
+            <div class="circuit-diagram">
+                <h4>מעגל בסיסי עם HC-SR04</h4>
+                <p><strong>רכיבים נדרשים:</strong></p>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>HC-SR04 - חיישן מרחק</li>
+                    <li>נגד 1KΩ - נגד הגנה</li>
+                    <li>קבל 0.1µF - קבל עדכון</li>
+                    <li>מיקרו-בקר עם פינים דיגיטליים</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>חיישנים מיוחדים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג חיישן</th>
+                        <th>דגם</th>
+                        <th>פונקציה</th>
+                        <th>שימושים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>חיישן גז</td>
+                        <td>MQ-2</td>
+                        <td>זיהוי גזים דליקים</td>
+                        <td>אזעקות, מערכות אבטחה</td>
+                        <td>₪25</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן רעידות</td>
+                        <td>SW-420</td>
+                        <td>זיהוי תנועה/רעידות</td>
+                        <td>אזעקות, ניטור רעידות</td>
+                        <td>₪15</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן קול</td>
+                        <td>LM386</td>
+                        <td>זיהוי קול</td>
+                        <td>מערכות אבטחה, בקרת תאורה</td>
+                        <td>₪20</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן מגנטי</td>
+                        <td>Hall Effect</td>
+                        <td>זיהוי שדות מגנטיים</td>
+                        <td>מדי מהירות, מערכות נעילה</td>
+                        <td>₪30</td>
+                    </tr>
+                    <tr>
+                        <td>חיישן לחץ</td>
+                        <td>BMP180</td>
+                        <td>מדידת לחץ אטמוספרי</td>
+                        <td>מזג אוויר, ניווט</td>
+                        <td>₪40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם חיישנים</h2>
+            <ul>
+                <li><strong>מתח אספקה:</strong> תמיד בדוק את טווח המתח המומלץ</li>
+                <li><strong>עדכון:</strong> השתמש בקבלי עדכון קרוב לחיישן</li>
+                <li><strong>מרחק:</strong> שמור על מרחק קצר בין החיישן למיקרו-בקר</li>
+                <li><strong>סינון:</strong> השתמש בסינון דיגיטלי להפחתת רעשים</li>
+                <li><strong>כיול:</strong> כייל חיישנים לפני שימוש מדויק</li>
+                <li><strong>טמפרטורה:</strong> שים לב לטמפרטורת העבודה של החיישן</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>ספריות Arduino נפוצות</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>חיישן</th>
+                        <th>ספרייה</th>
+                        <th>הורדה</th>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DHT22</td>
+                        <td>DHT sensor library</td>
+                        <td>Library Manager</td>
+                        <td>3 דוגמאות בסיסיות</td>
+                    </tr>
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>NewPing</td>
+                        <td>Library Manager</td>
+                        <td>5 דוגמאות מתקדמות</td>
+                    </tr>
+                    <tr>
+                        <td>BMP280</td>
+                        <td>Adafruit BMP280</td>
+                        <td>Library Manager</td>
+                        <td>4 דוגמאות עם I2C</td>
+                    </tr>
+                    <tr>
+                        <td>LM35</td>
+                        <td>בנייה ידנית</td>
+                        <td>-</td>
+                        <td>קריאת ADC פשוטה</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - חיישנים</p>
+    </footer>
+</body>
+</html> 

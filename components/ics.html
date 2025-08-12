@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מעגלים משולבים (IC) - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .ic-package {
+            width: 150px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .dip { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .soic { background: linear-gradient(45deg, #000000, #333333); }
+        .qfp { background: linear-gradient(45deg, #4B0082, #800080); }
+        .pin-diagram {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .pin-side {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .pin {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            padding: 5px;
+            background-color: white;
+            border-radius: 3px;
+        }
+        .pin-number {
+            font-weight: bold;
+            color: #004466;
+        }
+        .pin-function {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>מעגלים משולבים (IC) - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי ICs, חיבורים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי מעגלים משולבים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>קטגוריה</th>
+                        <th>דוגמאות</th>
+                        <th>תפקיד</th>
+                        <th>שימושים נפוצים</th>
+                        <th>רמת מורכבות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מגברים אופראציוניים</td>
+                        <td>LM358, LM741, TL082</td>
+                        <td>הגברת אותות אנלוגיים</td>
+                        <td>מגברים, מסננים, השוואות</td>
+                        <td>בינונית</td>
+                    </tr>
+                    <tr>
+                        <td>מגברי כוח</td>
+                        <td>LM386, TDA2030, LM3886</td>
+                        <td>הגברת אותות לכוח גבוה</td>
+                        <td>מערכות שמע, מנועים</td>
+                        <td>בינונית</td>
+                    </tr>
+                    <tr>
+                        <td>ממירי מתח</td>
+                        <td>LM7805, LM317, LM1117</td>
+                        <td>ייצוב וויסות מתח</td>
+                        <td>ספקי כוח, ייצוב מתח</td>
+                        <td>נמוכה</td>
+                    </tr>
+                    <tr>
+                        <td>מעגלי לוגיקה</td>
+                        <td>74HC00, 74HC08, 74HC32</td>
+                        <td>עיבוד אותות דיגיטליים</td>
+                        <td>מעגלי בקרה, שערים לוגיים</td>
+                        <td>בינונית</td>
+                    </tr>
+                    <tr>
+                        <td>מיקרו-בקרים</td>
+                        <td>ATmega328, PIC16F877, STM32</td>
+                        <td>בקרה ועיבוד דיגיטלי</td>
+                        <td>רובוטיקה, אוטומציה</td>
+                        <td>גבוהה</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי אריזות (Packages)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג אריזה</th>
+                        <th>תמונה</th>
+                        <th>מספר פינים</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DIP (Dual In-line Package)</td>
+                        <td><div class="ic-package dip"></div></td>
+                        <td>8-40</td>
+                        <td>קל לחיבור, זול</td>
+                        <td>גדול, לא מתאים למוצרים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>SOIC (Small Outline IC)</td>
+                        <td><div class="ic-package soic"></div></td>
+                        <td>8-28</td>
+                        <td>קטן, מתאים ל-SMD</td>
+                        <td>קשה לחיבור ידני</td>
+                    </tr>
+                    <tr>
+                        <td>QFP (Quad Flat Package)</td>
+                        <td><div class="ic-package qfp"></div></td>
+                        <td>32-256</td>
+                        <td>צפיפות גבוהה, ביצועים טובים</td>
+                        <td>יקר, דורש ציוד מיוחד</td>
+                    </tr>
+                    <tr>
+                        <td>BGA (Ball Grid Array)</td>
+                        <td><div class="ic-package qfp"></div></td>
+                        <td>100-1000+</td>
+                        <td>צפיפות גבוהה מאוד</td>
+                        <td>יקר מאוד, דורש ציוד מתקדם</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מגברים אופראציוניים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>מספר מגברים</th>
+                        <th>מתח אספקה</th>
+                        <th>זרם יציאה</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LM358</td>
+                        <td>2</td>
+                        <td>3V-32V</td>
+                        <td>40mA</td>
+                        <td>מגברים כללים, מסננים</td>
+                    </tr>
+                    <tr>
+                        <td>LM741</td>
+                        <td>1</td>
+                        <td>±5V-±18V</td>
+                        <td>25mA</td>
+                        <td>מגברים מדויקים</td>
+                    </tr>
+                    <tr>
+                        <td>TL082</td>
+                        <td>2</td>
+                        <td>±5V-±18V</td>
+                        <td>10mA</td>
+                        <td>מגברים מהירים</td>
+                    </tr>
+                    <tr>
+                        <td>LM324</td>
+                        <td>4</td>
+                        <td>3V-32V</td>
+                        <td>40mA</td>
+                        <td>מעגלים מרובי מגברים</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי מגבר אופראציוני</h2>
+            <div class="pin-diagram">
+                <div class="pin-side">
+                    <h3>צד שמאל (פינים 1-4)</h3>
+                    <div class="pin">
+                        <span class="pin-number">1</span>
+                        <span class="pin-function">פלט A</span>
+                    </div>
+                    <div class="pin">
+                        <span class="pin-number">2</span>
+                        <span class="pin-function">קלט הפוך A</span>
+                    </div>
+                    <div class="pin">
+                        <span class="pin-number">3</span>
+                        <span class="pin-function">קלט לא הפוך A</span>
+                    </div>
+                    <div class="pin">
+                        <span class="pin-number">4</span>
+                        <span class="pin-function">VCC (מתח חיובי)</span>
+                    </div>
+                </div>
+                <div class="pin-side">
+                    <h3>צד ימין (פינים 5-8)</h3>
+                    <div class="pin">
+                        <span class="pin-number">5</span>
+                        <span class="pin-function">קלט לא הפוך B</span>
+                    </div>
+                    <div class="pin">
+                        <span class="pin-number">6</span>
+                        <span class="pin-function">קלט הפוך B</span>
+                    </div>
+                    <div class="pin">
+                        <span class="pin-number">7</span>
+                        <span class="pin-function">פלט B</span>
+                    </div>
+                    <div class="pin">
+                        <span class="pin-number">8</span>
+                        <span class="pin-function">GND (אדמה)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלי לוגיקה נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סדרה</th>
+                        <th>סוג</th>
+                        <th>מספר שערים</th>
+                        <th>מתח אספקה</th>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>74HC</td>
+                        <td>CMOS</td>
+                        <td>4-6</td>
+                        <td>2V-6V</td>
+                        <td>74HC00, 74HC08, 74HC32</td>
+                    </tr>
+                    <tr>
+                        <td>74LS</td>
+                        <td>TTL</td>
+                        <td>4-6</td>
+                        <td>4.75V-5.25V</td>
+                        <td>74LS00, 74LS08, 74LS32</td>
+                    </tr>
+                    <tr>
+                        <td>4000</td>
+                        <td>CMOS</td>
+                        <td>4-6</td>
+                        <td>3V-18V</td>
+                        <td>4001, 4008, 4011</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>שערים לוגיים בסיסיים</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>שער</th>
+                        <th>סימול</th>
+                        <th>פונקציה</th>
+                        <th>טבלת אמת</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AND</td>
+                        <td>&</td>
+                        <td>פלט 1 רק אם כל הקלטים 1</td>
+                        <td>00=0, 01=0, 10=0, 11=1</td>
+                    </tr>
+                    <tr>
+                        <td>OR</td>
+                        <td>≥1</td>
+                        <td>פלט 1 אם לפחות קלט אחד 1</td>
+                        <td>00=0, 01=1, 10=1, 11=1</td>
+                    </tr>
+                    <tr>
+                        <td>NOT</td>
+                        <td>1</td>
+                        <td>הופך את הקלט</td>
+                        <td>0=1, 1=0</td>
+                    </tr>
+                    <tr>
+                        <td>NAND</td>
+                        <td>&</td>
+                        <td>AND + NOT</td>
+                        <td>00=1, 01=1, 10=1, 11=0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>ממירי מתח נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>מתח יציאה</th>
+                        <th>זרם מקסימלי</th>
+                        <th>מתח אספקה</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LM7805</td>
+                        <td>5V קבוע</td>
+                        <td>1A</td>
+                        <td>7V-35V</td>
+                        <td>מעגלים דיגיטליים</td>
+                    </tr>
+                    <tr>
+                        <td>LM7812</td>
+                        <td>12V קבוע</td>
+                        <td>1A</td>
+                        <td>14V-35V</td>
+                        <td>מעגלי כוח</td>
+                    </tr>
+                    <tr>
+                        <td>LM317</td>
+                        <td>1.25V-37V</td>
+                        <td>1.5A</td>
+                        <td>3V-40V</td>
+                        <td>מתח משתנה</td>
+                    </tr>
+                    <tr>
+                        <td>LM1117</td>
+                        <td>3.3V קבוע</td>
+                        <td>800mA</td>
+                        <td>4.75V-15V</td>
+                        <td>מעגלים נמוכי מתח</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם ICs</h2>
+            <ul>
+                <li><strong>זיהוי פינים:</strong> תמיד בדוק את הדאטאשיט לפני החיבור</li>
+                <li><strong>מתח אספקה:</strong> אל תחרוג מהמתח המקסימלי המוגדר</li>
+                <li><strong>קוטביות:</strong> שים לב לכיוון החיבור (VCC, GND)</li>
+                <li><strong>קירור:</strong> עבור ICs עם זרם גבוה השתמש במקרר חום</li>
+                <li><strong>עדכון:</strong> השתמש בקבלי עדכון קרוב ל-VCC ו-GND</li>
+                <li><strong>בדיקה:</strong> בדוק מתחים עם מולטימטר לפני הפעלה</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - מעגלים משולבים</p>
+    </footer>
+</body>
+</html> 

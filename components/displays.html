@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>צגים אלקטרוניים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .display-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .lcd { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .oled { background: linear-gradient(45deg, #000000, #333333); }
+        .tft { background: linear-gradient(45deg, #4B0082, #800080); }
+        .eink { background: linear-gradient(45deg, #FFFFFF, #CCCCCC); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pin-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .pin-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+            text-align: center;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>צגים אלקטרוניים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי צגים, חיבורים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי צגים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג צג</th>
+                        <th>תמונה</th>
+                        <th>עיקרון פעולה</th>
+                        <th>רזולוציה</th>
+                        <th>צריכת חשמל</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LCD</td>
+                        <td><div class="display-image lcd"></div></td>
+                        <td>גביש נוזלי + תאורה אחורית</td>
+                        <td>16x2 עד 20x4</td>
+                        <td>נמוכה</td>
+                        <td>זול, ברור</td>
+                        <td>זווית צפייה מוגבלת</td>
+                    </tr>
+                    <tr>
+                        <td>OLED</td>
+                        <td><div class="display-image oled"></div></td>
+                        <td>דיודות פולטות אור אורגניות</td>
+                        <td>128x64 עד 256x64</td>
+                        <td>בינונית</td>
+                        <td>ניגודיות גבוהה, מהיר</td>
+                        <td>יקר, שריפה</td>
+                    </tr>
+                    <tr>
+                        <td>TFT</td>
+                        <td><div class="display-image tft"></div></td>
+                        <td>טרנזיסטורים דקים + גביש נוזלי</td>
+                        <td>240x320 עד 800x600</td>
+                        <td>גבוהה</td>
+                        <td>צבע מלא, מהיר</td>
+                        <td>יקר, צריכת חשמל גבוהה</td>
+                    </tr>
+                    <tr>
+                        <td>E-Ink</td>
+                        <td><div class="display-image eink"></div></td>
+                        <td>חלקיקים אלקטרוניים</td>
+                        <td>800x600 עד 1200x1600</td>
+                        <td>נמוכה מאוד</td>
+                        <td>קריאה נוחה, חסכוני</td>
+                        <td>מהירות נמוכה, לא צבעוני</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>צגי LCD נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>רזולוציה</th>
+                        <th>ממשק</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LCD 16x2</td>
+                        <td>16x2 תווים</td>
+                        <td>I2C</td>
+                        <td>5V</td>
+                        <td>20mA</td>
+                        <td>₪25</td>
+                    </tr>
+                    <tr>
+                        <td>LCD 20x4</td>
+                        <td>20x4 תווים</td>
+                        <td>I2C</td>
+                        <td>5V</td>
+                        <td>25mA</td>
+                        <td>₪35</td>
+                    </tr>
+                    <tr>
+                        <td>LCD 16x2</td>
+                        <td>16x2 תווים</td>
+                        <td>Parallel</td>
+                        <td>5V</td>
+                        <td>30mA</td>
+                        <td>₪20</td>
+                    </tr>
+                    <tr>
+                        <td>LCD 20x4</td>
+                        <td>20x4 תווים</td>
+                        <td>Parallel</td>
+                        <td>5V</td>
+                        <td>35mA</td>
+                        <td>₪30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>צגי OLED נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>רזולוציה</th>
+                        <th>גודל</th>
+                        <th>ממשק</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSD1306 0.96"</td>
+                        <td>128x64 פיקסלים</td>
+                        <td>0.96 אינץ'</td>
+                        <td>I2C</td>
+                        <td>3.3V-5V</td>
+                        <td>20mA</td>
+                    </tr>
+                    <tr>
+                        <td>SSD1306 1.3"</td>
+                        <td>128x64 פיקסלים</td>
+                        <td>1.3 אינץ'</td>
+                        <td>SPI</td>
+                        <td>3.3V-5V</td>
+                        <td>25mA</td>
+                    </tr>
+                    <tr>
+                        <td>SH1106 1.3"</td>
+                        <td>128x64 פיקסלים</td>
+                        <td>1.3 אינץ'</td>
+                        <td>I2C</td>
+                        <td>3.3V-5V</td>
+                        <td>20mA</td>
+                    </tr>
+                    <tr>
+                        <td>SSD1322 2.4"</td>
+                        <td>256x64 פיקסלים</td>
+                        <td>2.4 אינץ'</td>
+                        <td>SPI</td>
+                        <td>3.3V-5V</td>
+                        <td>30mA</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>צגי TFT נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>רזולוציה</th>
+                        <th>גודל</th>
+                        <th>ממשק</th>
+                        <th>צבעים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ILI9341</td>
+                        <td>240x320 פיקסלים</td>
+                        <td>2.4 אינץ'</td>
+                        <td>SPI</td>
+                        <td>65K צבעים</td>
+                        <td>₪80</td>
+                    </tr>
+                    <tr>
+                        <td>ST7735</td>
+                        <td>128x160 פיקסלים</td>
+                        <td>1.8 אינץ'</td>
+                        <td>SPI</td>
+                        <td>65K צבעים</td>
+                        <td>₪60</td>
+                    </tr>
+                    <tr>
+                        <td>ILI9488</td>
+                        <td>320x480 פיקסלים</td>
+                        <td>3.5 אינץ'</td>
+                        <td>SPI</td>
+                        <td>65K צבעים</td>
+                        <td>₪120</td>
+                    </tr>
+                    <tr>
+                        <td>RA8875</td>
+                        <td>800x480 פיקסלים</td>
+                        <td>7 אינץ'</td>
+                        <td>SPI</td>
+                        <td>65K צבעים</td>
+                        <td>₪300</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי צגים</h2>
+            
+            <h3>צג LCD עם ממשק I2C</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>5V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>SDA</h4>
+                    <p>נתונים</p>
+                    <p>I2C Data</p>
+                </div>
+                <div class="pin-card">
+                    <h4>SCL</h4>
+                    <p>שעון</p>
+                    <p>I2C Clock</p>
+                </div>
+            </div>
+
+            <h3>צג OLED עם ממשק SPI</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>3.3V-5V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>MOSI</h4>
+                    <p>נתונים</p>
+                    <p>SPI Data</p>
+                </div>
+                <div class="pin-card">
+                    <h4>SCK</h4>
+                    <p>שעון</p>
+                    <p>SPI Clock</p>
+                </div>
+                <div class="pin-card">
+                    <h4>CS</h4>
+                    <p>בחירת שבב</p>
+                    <p>Chip Select</p>
+                </div>
+                <div class="pin-card">
+                    <h4>DC</h4>
+                    <p>בחירת נתונים</p>
+                    <p>Data/Command</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלים בסיסיים עם צגים</h2>
+            
+            <h3>צג LCD 16x2 עם Arduino</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>LCD 16x2 עם ממשק I2C</li>
+                    <li>Arduino (כל דגם)</li>
+                    <li>נגד 10KΩ (נגד משיכה)</li>
+                    <li>כבלים לחיבור</li>
+                </ul>
+            </div>
+
+            <h3>צג OLED עם Arduino</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>צג OLED SSD1306</li>
+                    <li>Arduino (כל דגם)</li>
+                    <li>כבלים לחיבור I2C</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>דוגמאות קוד</h2>
+            
+            <h3>קוד Arduino לצג LCD</h3>
+            <div class="code-example">
+                <pre>
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup() {
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("שלום עולם!");
+}
+
+void loop() {
+  // הקוד שלך כאן
+}
+                </pre>
+            </div>
+
+            <h3>קוד Arduino לצג OLED</h3>
+            <div class="code-example">
+                <pre>
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+void setup() {
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.println("שלום עולם!");
+  display.display();
+}
+
+void loop() {
+  // הקוד שלך כאן
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>ספריות Arduino נפוצות</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג צג</th>
+                        <th>ספרייה</th>
+                        <th>הורדה</th>
+                        <th>דוגמאות</th>
+                        <th>תמיכה בעברית</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LCD I2C</td>
+                        <td>LiquidCrystal_I2C</td>
+                        <td>Library Manager</td>
+                        <td>5 דוגמאות</td>
+                        <td>כן</td>
+                    </tr>
+                    <tr>
+                        <td>OLED SSD1306</td>
+                        <td>Adafruit SSD1306</td>
+                        <td>Library Manager</td>
+                        <td>8 דוגמאות</td>
+                        <td>כן</td>
+                    </tr>
+                    <tr>
+                        <td>TFT ILI9341</td>
+                        <td>Adafruit ILI9341</td>
+                        <td>Library Manager</td>
+                        <td>12 דוגמאות</td>
+                        <td>כן</td>
+                    </tr>
+                    <tr>
+                        <td>E-Ink</td>
+                        <td>GxEPD2</td>
+                        <td>GitHub</td>
+                        <td>6 דוגמאות</td>
+                        <td>לא</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם צגים</h2>
+            <ul>
+                <li><strong>מתח אספקה:</strong> תמיד בדוק את טווח המתח המומלץ</li>
+                <li><strong>עדכון:</strong> השתמש בקבלי עדכון קרוב לצג</li>
+                <li><strong>ממשק:</strong> בחר ממשק מתאים (I2C/SPI)</li>
+                <li><strong>רזולוציה:</strong> שים לב למגבלות הזיכרון</li>
+                <li><strong>עברית:</strong> השתמש בגופנים תומכי עברית</li>
+                <li><strong>ביצועים:</strong> צגי OLED מהירים יותר מ-LCD</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>יישומים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>סוג צג מומלץ</th>
+                        <th>רזולוציה נדרשת</th>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מכשירי מדידה</td>
+                        <td>LCD 16x2</td>
+                        <td>16x2 תווים</td>
+                        <td>מולטימטרים, אוסצילוסקופים</td>
+                    </tr>
+                    <tr>
+                        <td>מערכות בקרה</td>
+                        <td>LCD 20x4</td>
+                        <td>20x4 תווים</td>
+                        <td>מערכות אוטומציה, בקרים</td>
+                    </tr>
+                    <tr>
+                        <td>מכשירים ניידים</td>
+                        <td>OLED</td>
+                        <td>128x64 פיקסלים</td>
+                        <td>שעונים חכמים, חיישנים</td>
+                    </tr>
+                    <tr>
+                        <td>ממשקי משתמש</td>
+                        <td>TFT</td>
+                        <td>240x320 פיקסלים</td>
+                        <td>מסכי מגע, לוחות בקרה</td>
+                    </tr>
+                    <tr>
+                        <td>קוראי ספרים</td>
+                        <td>E-Ink</td>
+                        <td>800x600 פיקסלים</td>
+                        <td>קינדל, טאבלטים</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - צגים</p>
+    </footer>
+</body>
+</html> 

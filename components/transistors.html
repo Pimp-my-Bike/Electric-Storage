@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>טרנזיסטורים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .transistor-symbol {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .npn {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+        }
+        .pnp {
+            background: linear-gradient(45deg, #4ECDC4, #7FDBDA);
+        }
+        .mosfet {
+            background: linear-gradient(45deg, #45B7D1, #96CEB4);
+        }
+        .pinout {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+        .pin {
+            text-align: center;
+            padding: 10px;
+        }
+        .pin-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .pin-desc {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>טרנזיסטורים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי טרנזיסטורים, חיבורים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי טרנזיסטורים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג טרנזיסטור</th>
+                        <th>סימול</th>
+                        <th>עקרון פעולה</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                        <th>שימושים נפוצים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NPN</td>
+                        <td><div class="transistor-symbol npn"></div></td>
+                        <td>זרם בסיס מפעיל זרם קולט</td>
+                        <td>נפוץ, זול, מהיר</td>
+                        <td>צריכת זרם בסיס</td>
+                        <td>מגברים, מתגים</td>
+                    </tr>
+                    <tr>
+                        <td>PNP</td>
+                        <td><div class="transistor-symbol pnp"></div></td>
+                        <td>זרם בסיס מפעיל זרם קולט</td>
+                        <td>עבודה עם מתח שלילי</td>
+                        <td>פחות נפוץ</td>
+                        <td>מעגלי כוח</td>
+                    </tr>
+                    <tr>
+                        <td>MOSFET</td>
+                        <td><div class="transistor-symbol mosfet"></div></td>
+                        <td>מתח שער מפעיל זרם דרין</td>
+                        <td>צריכת זרם נמוכה, מהיר</td>
+                        <td>רגיש לסטטיקה</td>
+                        <td>מעגלים דיגיטליים</td>
+                    </tr>
+                    <tr>
+                        <td>IGBT</td>
+                        <td><div class="transistor-symbol npn"></div></td>
+                        <td>שילוב MOSFET ו-BJT</td>
+                        <td>עוצמה גבוהה, מהיר</td>
+                        <td>יקר, מורכב</td>
+                        <td>ממירי כוח</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי טרנזיסטורים</h2>
+            
+            <h3>טרנזיסטור NPN (BC547, 2N2222)</h3>
+            <div class="pinout">
+                <div class="pin">
+                    <div class="pin-label">קולט (Collector)</div>
+                    <div class="pin-desc">מתח גבוה</div>
+                </div>
+                <div class="pin">
+                    <div class="pin-label">בסיס (Base)</div>
+                    <div class="pin-desc">זרם בקרה</div>
+                </div>
+                <div class="pin">
+                    <div class="pin-label">פולט (Emitter)</div>
+                    <div class="pin-desc">מתח נמוך</div>
+                </div>
+            </div>
+
+            <h3>טרנזיסטור PNP (BC557, 2N3906)</h3>
+            <div class="pinout">
+                <div class="pin">
+                    <div class="pin-label">קולט (Collector)</div>
+                    <div class="pin-desc">מתח נמוך</div>
+                </div>
+                <div class="pin">
+                    <div class="pin-label">בסיס (Base)</div>
+                    <div class="pin-desc">זרם בקרה</div>
+                </div>
+                <div class="pin">
+                    <div class="pin-label">פולט (Emitter)</div>
+                    <div class="pin-desc">מתח גבוה</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>טרנזיסטורים נפוצים ומפרטיהם</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>סוג</th>
+                        <th>זרם קולט מקסימלי</th>
+                        <th>מתח קולט-פולט מקסימלי</th>
+                        <th>הגבר זרם</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BC547</td>
+                        <td>NPN</td>
+                        <td>100mA</td>
+                        <td>45V</td>
+                        <td>110-800</td>
+                        <td>מגברים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>BC557</td>
+                        <td>PNP</td>
+                        <td>100mA</td>
+                        <td>45V</td>
+                        <td>110-800</td>
+                        <td>מגברים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>2N2222</td>
+                        <td>NPN</td>
+                        <td>800mA</td>
+                        <td>40V</td>
+                        <td>100-300</td>
+                        <td>מגברים בינוניים</td>
+                    </tr>
+                    <tr>
+                        <td>2N3904</td>
+                        <td>NPN</td>
+                        <td>200mA</td>
+                        <td>40V</td>
+                        <td>100-300</td>
+                        <td>מגברים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>2N3055</td>
+                        <td>NPN</td>
+                        <td>15A</td>
+                        <td>60V</td>
+                        <td>20-70</td>
+                        <td>מעגלי כוח</td>
+                    </tr>
+                    <tr>
+                        <td>IRF540</td>
+                        <td>N-MOSFET</td>
+                        <td>33A</td>
+                        <td>100V</td>
+                        <td>-</td>
+                        <td>מעגלי כוח</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלים בסיסיים עם טרנזיסטורים</h2>
+            
+            <h3>מגבר פולט משותף (Common Emitter)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>רכיב</th>
+                        <th>ערך</th>
+                        <th>תפקיד</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>נגד בסיס</td>
+                        <td>10KΩ</td>
+                        <td>הגבלת זרם בסיס</td>
+                    </tr>
+                    <tr>
+                        <td>נגד קולט</td>
+                        <td>1KΩ</td>
+                        <td>טעינת הטרנזיסטור</td>
+                    </tr>
+                    <tr>
+                        <td>קבל קלט</td>
+                        <td>1µF</td>
+                        <td>עדכון DC</td>
+                    </tr>
+                    <tr>
+                        <td>קבל פלט</td>
+                        <td>1µF</td>
+                        <td>עדכון DC</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>מתג טרנזיסטור</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>רכיב</th>
+                        <th>ערך</th>
+                        <th>תפקיד</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>נגד בסיס</td>
+                        <td>1KΩ</td>
+                        <td>הגבלת זרם בסיס</td>
+                    </tr>
+                    <tr>
+                        <td>נגד קולט</td>
+                        <td>330Ω</td>
+                        <td>טעינת LED</td>
+                    </tr>
+                    <tr>
+                        <td>LED</td>
+                        <td>-</td>
+                        <td>אינדיקטור</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם טרנזיסטורים</h2>
+            <ul>
+                <li><strong>זיהוי פינים:</strong> תמיד בדוק את הדאטאשיט לפני החיבור</li>
+                <li><strong>נגד בסיס:</strong> תמיד השתמש בנגד בסיס להגבלת הזרם</li>
+                <li><strong>מתח עבודה:</strong> אל תחרוג מהמתח המקסימלי המוגדר</li>
+                <li><strong>קירור:</strong> עבור זרמים גבוהים השתמש במקרר חום</li>
+                <li><strong>סטטיקה:</strong> עבור MOSFETs השתמש בטבעות נגד סטטיקה</li>
+                <li><strong>בדיקה:</strong> בדוק טרנזיסטורים עם מולטימטר לפני השימוש</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>בדיקת טרנזיסטורים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג בדיקה</th>
+                        <th>שיטה</th>
+                        <th>תוצאה תקינה</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>בדיקת דיודה</td>
+                        <td>בדוק עם מולטימטר במצב דיודה</td>
+                        <td>0.6-0.7V בין בסיס לפולט</td>
+                    </tr>
+                    <tr>
+                        <td>בדיקת הגבר</td>
+                        <td>השתמש במצב hFE במולטימטר</td>
+                        <td>ערך בטווח המוגדר</td>
+                    </tr>
+                    <tr>
+                        <td>בדיקת דליפה</td>
+                        <td>בדוק התנגדות בין קולט לפולט</td>
+                        <td>התנגדות גבוהה מאוד</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - טרנזיסטורים</p>
+    </footer>
+</body>
+</html> 

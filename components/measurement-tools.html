@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>כלי מדידה אלקטרוניים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .tool-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .multimeter { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .oscilloscope { background: linear-gradient(45deg, #000000, #333333); }
+        .generator { background: linear-gradient(45deg, #4B0082, #800080); }
+        .power-supply { background: linear-gradient(45deg, #DC143C, #FF4500); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .spec-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .price-range {
+            font-weight: bold;
+            color: #004466;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>כלי מדידה אלקטרוניים - מדריך מקיף</h1>
+        <p>מידע מפורט על כלי מדידה, מפרטים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+            <a href="displays.html">צגים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>כלי מדידה עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי מדידה</th>
+                        <th>תמונה</th>
+                        <th>תפקיד עיקרי</th>
+                        <th>דיוק</th>
+                        <th>מחיר ממוצע</th>
+                        <th>שימושים נפוצים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מולטימטר</td>
+                        <td><div class="tool-image multimeter"></div></td>
+                        <td>מדידת מתח, זרם והתנגדות</td>
+                        <td>±0.5% עד ±2%</td>
+                        <td class="price-range">₪50-2000</td>
+                        <td>בדיקת מעגלים, אבחון תקלות</td>
+                    </tr>
+                    <tr>
+                        <td>אוסצילוסקופ</td>
+                        <td><div class="tool-image oscilloscope"></div></td>
+                        <td>צפייה בצורת גל</td>
+                        <td>±2% עד ±5%</td>
+                        <td class="price-range">₪500-50000</td>
+                        <td>ניתוח אותות, דיבוג מעגלים</td>
+                    </tr>
+                    <tr>
+                        <td>מחולל אותות</td>
+                        <td><div class="tool-image generator"></div></td>
+                        <td>יצירת אותות בדיקה</td>
+                        <td>±1% עד ±3%</td>
+                        <td class="price-range">₪200-3000</td>
+                        <td>בדיקת מעגלים, כיול מכשירים</td>
+                    </tr>
+                    <tr>
+                        <td>ספק כוח מדיד</td>
+                        <td><div class="tool-image power-supply"></div></td>
+                        <td>אספקת מתח וזרם מדויקים</td>
+                        <td>±0.1% עד ±1%</td>
+                        <td class="price-range">₪300-5000</td>
+                        <td>בדיקת מעגלים, פיתוח</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מולטימטרים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג</th>
+                        <th>דיוק</th>
+                        <th>טווח מדידה</th>
+                        <th>תכונות מיוחדות</th>
+                        <th>מחיר ממוצע</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>אנלוגי</td>
+                        <td>±2%</td>
+                        <td>מתח: 0.1V-1000V<br>זרם: 0.1mA-10A<br>התנגדות: 1Ω-10MΩ</td>
+                        <td>קריאה מהירה, זול</td>
+                        <td>₪50-150</td>
+                        <td>בדיקות בסיסיות</td>
+                    </tr>
+                    <tr>
+                        <td>דיגיטלי בסיסי</td>
+                        <td>±1%</td>
+                        <td>מתח: 0.1V-1000V<br>זרם: 0.1mA-10A<br>התנגדות: 0.1Ω-20MΩ</td>
+                        <td>קריאה דיגיטלית, זול</td>
+                        <td>₪80-200</td>
+                        <td>עבודות כלליות</td>
+                    </tr>
+                    <tr>
+                        <td>דיגיטלי מתקדם</td>
+                        <td>±0.5%</td>
+                        <td>מתח: 0.01V-1000V<br>זרם: 0.01mA-20A<br>התנגדות: 0.01Ω-100MΩ</td>
+                        <td>True RMS, Auto Range</td>
+                        <td>₪200-500</td>
+                        <td>עבודות מקצועיות</td>
+                    </tr>
+                    <tr>
+                        <td>מקצועי</td>
+                        <td>±0.1%</td>
+                        <td>מתח: 0.001V-1000V<br>זרם: 0.001mA-20A<br>התנגדות: 0.001Ω-100MΩ</td>
+                        <td>Data Logging, PC Interface</td>
+                        <td>₪500-2000</td>
+                        <td>מעבדות, מחקר</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>אוסצילוסקופים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג</th>
+                        <th>רוחב פס</th>
+                        <th>קצב דגימה</th>
+                        <th>עומק זיכרון</th>
+                        <th>ערוצים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>אנלוגי</td>
+                        <td>20MHz-100MHz</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td>₪500-2000</td>
+                    </tr>
+                    <tr>
+                        <td>דיגיטלי בסיסי</td>
+                        <td>50MHz-200MHz</td>
+                        <td>1GS/s</td>
+                        <td>1M-10M נקודות</td>
+                        <td>2</td>
+                        <td>₪1000-3000</td>
+                    </tr>
+                    <tr>
+                        <td>דיגיטלי מתקדם</td>
+                        <td>200MHz-1GHz</td>
+                        <td>2GS/s-5GS/s</td>
+                        <td>10M-100M נקודות</td>
+                        <td>4</td>
+                        <td>₪3000-10000</td>
+                    </tr>
+                    <tr>
+                        <td>מקצועי</td>
+                        <td>1GHz-4GHz</td>
+                        <td>10GS/s-40GS/s</td>
+                        <td>100M-1G נקודות</td>
+                        <td>4-8</td>
+                        <td>₪10000-50000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מחוללי אותות</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג</th>
+                        <th>טווח תדר</th>
+                        <th>צורות גל</th>
+                        <th>דיוק תדר</th>
+                        <th>עומס מקסימלי</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>פונקציה בסיסי</td>
+                        <td>0.1Hz-20MHz</td>
+                        <td>סינוס, ריבוע, משולש</td>
+                        <td>±0.1%</td>
+                        <td>50Ω</td>
+                        <td>₪200-500</td>
+                    </tr>
+                    <tr>
+                        <td>פונקציה מתקדם</td>
+                        <td>0.01Hz-50MHz</td>
+                        <td>סינוס, ריבוע, משולש, רעש</td>
+                        <td>±0.01%</td>
+                        <td>50Ω</td>
+                        <td>₪500-1000</td>
+                    </tr>
+                    <tr>
+                        <td>אותות מיוחדים</td>
+                        <td>0.001Hz-100MHz</td>
+                        <td>כל הצורות + אותות מותאמים</td>
+                        <td>±0.001%</td>
+                        <td>50Ω</td>
+                        <td>₪1000-3000</td>
+                    </tr>
+                    <tr>
+                        <td>RF</td>
+                        <td>1MHz-3GHz</td>
+                        <td>AM, FM, PM</td>
+                        <td>±0.001%</td>
+                        <td>50Ω</td>
+                        <td>₪3000-10000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>ספקי כוח למדידה</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג</th>
+                        <th>טווח מתח</th>
+                        <th>טווח זרם</th>
+                        <th>דיוק מתח</th>
+                        <th>דיוק זרם</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>יחיד</td>
+                        <td>0V-30V</td>
+                        <td>0A-3A</td>
+                        <td>±0.1%</td>
+                        <td>±0.2%</td>
+                        <td>₪300-800</td>
+                    </tr>
+                    <tr>
+                        <td>כפול</td>
+                        <td>±15V</td>
+                        <td>0A-1A</td>
+                        <td>±0.05%</td>
+                        <td>±0.1%</td>
+                        <td>₪500-1200</td>
+                    </tr>
+                    <tr>
+                        <td>משולש</td>
+                        <td>0V-30V</td>
+                        <td>0A-5A</td>
+                        <td>±0.01%</td>
+                        <td>±0.02%</td>
+                        <td>₪800-2000</td>
+                    </tr>
+                    <tr>
+                        <td>מקצועי</td>
+                        <td>0V-100V</td>
+                        <td>0A-20A</td>
+                        <td>±0.001%</td>
+                        <td>±0.002%</td>
+                        <td>₪2000-5000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>כלי מדידה נוספים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תפקיד</th>
+                        <th>מפרטים טיפוסיים</th>
+                        <th>מחיר ממוצע</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מד LCR</td>
+                        <td>מדידת נגדים, קבלים וסלילים</td>
+                        <td>דיוק: ±0.1%, תדר: 1kHz-1MHz</td>
+                        <td>₪500-2000</td>
+                        <td>בדיקת רכיבים, כיול</td>
+                    </tr>
+                    <tr>
+                        <td>אנליזת ספקטרום</td>
+                        <td>ניתוח תדרים</td>
+                        <td>טווח: 9kHz-3GHz, רזולוציה: 1Hz</td>
+                        <td>₪2000-10000</td>
+                        <td>ניתוח אותות RF, EMC</td>
+                    </tr>
+                    <tr>
+                        <td>מד טמפרטורה</td>
+                        <td>מדידת טמפרטורה</td>
+                        <td>טווח: -200°C עד 1000°C, דיוק: ±0.5°C</td>
+                        <td>₪200-800</td>
+                        <td>בקרת טמפרטורה, בדיקות</td>
+                    </tr>
+                    <tr>
+                        <td>מד זרם צבת</td>
+                        <td>מדידת זרם ללא חיתוך</td>
+                        <td>טווח: 0A-1000A, דיוק: ±2%</td>
+                        <td>₪300-1500</td>
+                        <td>בדיקת מערכות כוח</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>כלי מדידה ביתיים</h2>
+            
+            <h3>ערכה בסיסית למתחילים</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <h5>מולטימטר דיגיטלי</h5>
+                        <p>Uni-T UT33D או דומה</p>
+                        <p>מחיר: ₪80-150</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>מלחם</h5>
+                        <p>40W עם עמדה</p>
+                        <p>מחיר: ₪50-100</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>צבת</h5>
+                        <p>צבת שטוחה ומעוגלת</p>
+                        <p>מחיר: ₪30-60</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>מסיר בידוד</h5>
+                        <p>עם התאמות שונות</p>
+                        <p>מחיר: ₪20-40</p>
+                    </div>
+                </div>
+                <p><strong>סה"כ: ₪180-350</strong></p>
+            </div>
+
+            <h3>ערכה מתקדמת</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נוספים:</h4>
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <h5>אוסצילוסקופ דיגיטלי</h5>
+                        <p>Hantek DSO5102P</p>
+                        <p>מחיר: ₪1500-2500</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>מחולל אותות</h5>
+                        <p>DDS Function Generator</p>
+                        <p>מחיר: ₪300-600</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>ספק כוח מדיד</h5>
+                        <p>0-30V, 0-3A</p>
+                        <p>מחיר: ₪400-800</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>מד LCR</h5>
+                        <p>מדידת רכיבים</p>
+                        <p>מחיר: ₪600-1200</p>
+                    </div>
+                </div>
+                <p><strong>סה"כ נוסף: ₪2800-5100</strong></p>
+            </div>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ אזהרות בטיחות חשובות</h3>
+            <ul>
+                <li><strong>מתח גבוה:</strong> אל תמדוד מתחים מעל 1000V ללא ציוד מתאים</li>
+                <li><strong>בדיקת זרם:</strong> תמיד בדוק את טווח הזרם לפני המדידה</li>
+                <li><strong>קרקע:</strong> השתמש תמיד בקרקע מתאימה</li>
+                <li><strong>בידוד:</strong> בדוק את מצב הבידוד של הכלים</li>
+                <li><strong>טמפרטורה:</strong> אל תעבוד בטמפרטורות קיצוניות</li>
+                <li><strong>תחזוקה:</strong> בדוק וכוון כלים באופן קבוע</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לבחירת כלי מדידה</h2>
+            <ul>
+                <li><strong>דיוק:</strong> בחר לפי הדרישות שלך - לא תמיד צריך את הדיוק הגבוה ביותר</li>
+                <li><strong>טווח:</strong> וודא שהטווח מתאים למדידות שלך</li>
+                <li><strong>איכות:</strong> כלים איכותיים מחזיקים מעמד יותר זמן</li>
+                <li><strong>תמיכה:</strong> בחר כלים עם תמיכה טכנית טובה</li>
+                <li><strong>כיול:</strong> בדוק אם הכלי דורש כיול תקופתי</li>
+                <li><strong>עתיד:</strong> קנה כלים שיספיקו לך לשנים הבאות</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>יישומים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>כלי נדרש</th>
+                        <th>דיוק נדרש</th>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>בדיקות ביתיות</td>
+                        <td>מולטימטר בסיסי</td>
+                        <td>±2%</td>
+                        <td>בדיקת סוללות, מתגים</td>
+                    </tr>
+                    <tr>
+                        <td>עבודות אלקטרוניקה</td>
+                        <td>מולטימטר מתקדם + אוסצילוסקופ</td>
+                        <td>±1%</td>
+                        <td>בדיקת מעגלים, דיבוג</td>
+                    </tr>
+                    <tr>
+                        <td>פיתוח מוצרים</td>
+                        <td>כלים מקצועיים</td>
+                        <td>±0.1%</td>
+                        <td>בדיקות איכות, תאימות</td>
+                    </tr>
+                    <tr>
+                        <td>מעבדות מחקר</td>
+                        <td>כלים מדויקים מאוד</td>
+                        <td>±0.01%</td>
+                        <td>מחקר מדעי, פיתוח טכנולוגי</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - כלי מדידה</p>
+    </footer>
+</body>
+</html> 

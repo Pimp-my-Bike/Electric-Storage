@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>כבלים ומוליכים אלקטרוניים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .wire-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .single-core { background: linear-gradient(45deg, #FFD700, #FFA500); }
+        .multi-core { background: linear-gradient(45deg, #32CD32, #228B22); }
+        .coaxial { background: linear-gradient(45deg, #4B0082, #800080); }
+        .twisted-pair { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .fiber-optic { background: linear-gradient(45deg, #00CED1, #20B2AA); }
+        .flat-cable { background: linear-gradient(45deg, #FF69B4, #DC143C); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .wire-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .spec-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+            text-align: center;
+        }
+        .color-coding {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .color-item {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .red { background-color: #FF0000; }
+        .black { background-color: #000000; }
+        .blue { background-color: #0000FF; }
+        .green { background-color: #008000; }
+        .yellow { background-color: #FFFF00; color: #000; }
+        .brown { background-color: #8B4513; }
+        .white { background-color: #FFFFFF; color: #000; border: 1px solid #ccc; }
+        .gray { background-color: #808080; }
+        .orange { background-color: #FFA500; }
+        .purple { background-color: #800080; }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: left;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .wire-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .wire-card {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+        }
+        .connector-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .connector-card {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #4169e1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>כבלים ומוליכים אלקטרוניים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי כבלים, מוליכים, חיבורים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+            <a href="displays.html">צגים</a>
+            <a href="measurement-tools.html">כלי מדידה</a>
+            <a href="rf-modules.html">רכיבי RF</a>
+            <a href="communication-modules.html">רכיבי תקשורת</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי מוליכים עיקריים</h2>
+            <div class="wire-comparison">
+                <div class="wire-card">
+                    <h3>מוליך חד-גרעיני</h3>
+                    <div class="wire-image single-core"></div>
+                    <p><strong>שימושים:</strong> חיבורים פשוטים, תאורה</p>
+                    <p><strong>גמישות:</strong> נמוכה</p>
+                    <p><strong>מחיר:</strong> זול</p>
+                </div>
+                <div class="wire-card">
+                    <h3>מוליך רב-גרעיני</h3>
+                    <div class="wire-image multi-core"></div>
+                    <p><strong>שימושים:</strong> תנועה, גמישות</p>
+                    <p><strong>גמישות:</strong> גבוהה</p>
+                    <p><strong>מחיר:</strong> בינוני</p>
+                </div>
+                <div class="wire-card">
+                    <h3>כבל קואקסיאלי</h3>
+                    <div class="wire-image coaxial"></div>
+                    <p><strong>שימושים:</strong> אותות RF, וידאו</p>
+                    <p><strong>גמישות:</strong> בינונית</p>
+                    <p><strong>מחיר:</strong> גבוה</p>
+                </div>
+                <div class="wire-card">
+                    <h3>כבל זוג מעוות</h3>
+                    <div class="wire-image twisted-pair"></div>
+                    <p><strong>שימושים:</strong> תקשורת נתונים</p>
+                    <p><strong>גמישות:</strong> גבוהה</p>
+                    <p><strong>מחיר:</strong> בינוני</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>טבלת מוליכים לפי חתך</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>חתך (mm²)</th>
+                        <th>חתך (AWG)</th>
+                        <th>זרם מקסימלי (A)</th>
+                        <th>התנגדות (Ω/km)</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע (₪/מ')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0.5</td>
+                        <td>20</td>
+                        <td>3</td>
+                        <td>35.0</td>
+                        <td>אותות חלשים, תאורה LED</td>
+                        <td>₪2-5</td>
+                    </tr>
+                    <tr>
+                        <td>1.0</td>
+                        <td>18</td>
+                        <td>6</td>
+                        <td>17.5</td>
+                        <td>תאורה, חיישנים</td>
+                        <td>₪3-7</td>
+                    </tr>
+                    <tr>
+                        <td>1.5</td>
+                        <td>16</td>
+                        <td>10</td>
+                        <td>11.7</td>
+                        <td>תאורה, שקעים</td>
+                        <td>₪4-8</td>
+                    </tr>
+                    <tr>
+                        <td>2.5</td>
+                        <td>14</td>
+                        <td>16</td>
+                        <td>7.0</td>
+                        <td>שקעים, מכשירים</td>
+                        <td>₪6-12</td>
+                    </tr>
+                    <tr>
+                        <td>4.0</td>
+                        <td>12</td>
+                        <td>25</td>
+                        <td>4.4</td>
+                        <td>מכשירים חזקים</td>
+                        <td>₪8-15</td>
+                    </tr>
+                    <tr>
+                        <td>6.0</td>
+                        <td>10</td>
+                        <td>32</td>
+                        <td>2.9</td>
+                        <td>מזגנים, תנורים</td>
+                        <td>₪12-20</td>
+                    </tr>
+                    <tr>
+                        <td>10.0</td>
+                        <td>8</td>
+                        <td>40</td>
+                        <td>1.8</td>
+                        <td>לוח חשמל ראשי</td>
+                        <td>₪18-30</td>
+                    </tr>
+                    <tr>
+                        <td>16.0</td>
+                        <td>6</td>
+                        <td>50</td>
+                        <td>1.1</td>
+                        <td>לוח חשמל ראשי</td>
+                        <td>₪25-40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>כבלי אותות ותקשורת</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג כבל</th>
+                        <th>תמונה</th>
+                        <th>עצה</th>
+                        <th>טווח תדרים</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע (₪/מ')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>כבל קואקסיאלי RG58</td>
+                        <td><div class="wire-image coaxial"></div></td>
+                        <td>50Ω</td>
+                        <td>0-1GHz</td>
+                        <td>אנטנות, אותות RF</td>
+                        <td>₪8-15</td>
+                    </tr>
+                    <tr>
+                        <td>כבל קואקסיאלי RG6</td>
+                        <td><div class="wire-image coaxial"></div></td>
+                        <td>75Ω</td>
+                        <td>0-3GHz</td>
+                        <td>טלוויזיה, וידאו</td>
+                        <td>₪10-20</td>
+                    </tr>
+                    <tr>
+                        <td>כבל זוג מעוות Cat5e</td>
+                        <td><div class="wire-image twisted-pair"></div></td>
+                        <td>100Ω</td>
+                        <td>0-100MHz</td>
+                        <td>רשתות מחשבים</td>
+                        <td>₪5-12</td>
+                    </tr>
+                    <tr>
+                        <td>כבל זוג מעוות Cat6</td>
+                        <td><div class="wire-image twisted-pair"></div></td>
+                        <td>100Ω</td>
+                        <td>0-250MHz</td>
+                        <td>רשתות מהירות</td>
+                        <td>₪8-18</td>
+                    </tr>
+                    <tr>
+                        <td>כבל זוג מעוות Cat7</td>
+                        <td><div class="wire-image twisted-pair"></div></td>
+                        <td>100Ω</td>
+                        <td>0-600MHz</td>
+                        <td>רשתות מהירות מאוד</td>
+                        <td>₪15-30</td>
+                    </tr>
+                    <tr>
+                        <td>כבל אופטי חד-אופן</td>
+                        <td><div class="wire-image fiber-optic"></div></td>
+                        <td>-</td>
+                        <td>1310/1550nm</td>
+                        <td>תקשורת אופטית</td>
+                        <td>₪20-50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>כבלי כוח וחשמל</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג כבל</th>
+                        <th>תמונה</th>
+                        <th>מספר מוליכים</th>
+                        <th>חתך מקסימלי</th>
+                        <th>מתח עבודה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע (₪/מ')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>כבל NYM 3x1.5</td>
+                        <td><div class="wire-image multi-core"></div></td>
+                        <td>3</td>
+                        <td>1.5mm²</td>
+                        <td>230V</td>
+                        <td>תאורה, שקעים</td>
+                        <td>₪8-15</td>
+                    </tr>
+                    <tr>
+                        <td>כבל NYM 3x2.5</td>
+                        <td><div class="wire-image multi-core"></div></td>
+                        <td>3</td>
+                        <td>2.5mm²</td>
+                        <td>230V</td>
+                        <td>שקעים, מכשירים</td>
+                        <td>₪12-20</td>
+                    </tr>
+                    <tr>
+                        <td>כבל NYM 5x2.5</td>
+                        <td><div class="wire-image multi-core"></div></td>
+                        <td>5</td>
+                        <td>2.5mm²</td>
+                        <td>400V</td>
+                        <td>מנועים תלת-פאזיים</td>
+                        <td>₪18-30</td>
+                    </tr>
+                    <tr>
+                        <td>כבל גמיש 3x1.5</td>
+                        <td><div class="wire-image multi-core"></div></td>
+                        <td>3</td>
+                        <td>1.5mm²</td>
+                        <td>230V</td>
+                        <td>מכשירים ניידים</td>
+                        <td>₪10-18</td>
+                    </tr>
+                    <tr>
+                        <td>כבל גמיש 3x2.5</td>
+                        <div class="wire-image multi-core"></div></td>
+                        <td>3</td>
+                        <td>2.5mm²</td>
+                        <td>230V</td>
+                        <td>מכשירים חזקים</td>
+                        <td>₪15-25</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>קידוד צבעים למוליכים</h2>
+            <div class="color-coding">
+                <div class="color-item red">אדום - מוליך חיובי (+)</div>
+                <div class="color-item black">שחור - מוליך שלילי (-)</div>
+                <div class="color-item blue">כחול - מוליך ניטרלי</div>
+                <div class="color-item green">ירוק - אדמה</div>
+                <div class="color-item yellow">צהוב - אדמה</div>
+                <div class="color-item brown">חום - מוליך חיובי</div>
+                <div class="color-item white">לבן - מוליך ניטרלי</div>
+                <div class="color-item gray">אפור - מוליך ניטרלי</div>
+                <div class="color-item orange">כתום - מוליך חיובי</div>
+                <div class="color-item purple">סגול - מוליך שלילי</div>
+            </div>
+            
+            <h3>קידוד צבעים בישראל:</h3>
+            <ul>
+                <li><strong>חום:</strong> מוליך חיובי (פאזה)</li>
+                <li><strong>כחול:</strong> מוליך ניטרלי</li>
+                <li><strong>צהוב-ירוק:</strong> מוליך אדמה</li>
+                <li><strong>שחור:</strong> מוליך שלילי (במעגלי DC)</li>
+                <li><strong>אדום:</strong> מוליך חיובי (במעגלי DC)</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>כבלים מיוחדים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג כבל</th>
+                        <th>תמונה</th>
+                        <th>תכונות מיוחדות</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע (₪/מ')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>כבל שטוח (Ribbon)</td>
+                        <td><div class="wire-image flat-cable"></div></td>
+                        <td>גמיש, קל לחיבור</td>
+                        <td>מחשבים, מדפסות</td>
+                        <td>₪5-15</td>
+                    </tr>
+                    <tr>
+                        <td>כבל USB</td>
+                        <td><div class="wire-image multi-core"></div></td>
+                        <td>4 מוליכים, מגן</td>
+                        <td>העברת נתונים, טעינה</td>
+                        <td>₪10-25</td>
+                    </tr>
+                    <tr>
+                        <td>כבל HDMI</td>
+                        <td><div class="wire-image coaxial"></div></td>
+                        <td>19 מוליכים, מגן</td>
+                        <td>וידאו ואודיו דיגיטלי</td>
+                        <td>₪20-60</td>
+                    </tr>
+                    <tr>
+                        <td>כבל Ethernet</td>
+                        <td><div class="wire-image twisted-pair"></div></td>
+                        <td>8 מוליכים, מגן</td>
+                        <td>רשתות מחשבים</td>
+                        <td>₪8-20</td>
+                    </tr>
+                    <tr>
+                        <td>כבל אופטי</td>
+                        <td><div class="wire-image fiber-optic"></div></td>
+                        <td>אין הפרעות אלקטרומגנטיות</td>
+                        <td>תקשורת מהירה מאוד</td>
+                        <td>₪30-100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורים ומחברים לכבלים</h2>
+            <div class="connector-types">
+                <div class="connector-card">
+                    <h4>חיבורי מוליכים</h4>
+                    <ul style="text-align: right;">
+                        <li>פקקי בורג</li>
+                        <li>פקקי לחיצה</li>
+                        <li>פקקי בידוד</li>
+                        <li>פקקי צינור</li>
+                    </ul>
+                </div>
+                <div class="connector-card">
+                    <h4>חיבורי כבלים</h4>
+                    <ul style="text-align: right;">
+                        <li>פקקי כבל</li>
+                        <li>פקקי צינור</li>
+                        <li>פקקי בידוד</li>
+                        <li>פקקי מגן</li>
+                    </ul>
+                </div>
+                <div class="connector-card">
+                    <h4>כלי עבודה</h4>
+                    <ul style="text-align: right;">
+                        <li>מלחם</li>
+                        <li>פחית הלחמה</li>
+                        <li>מלחם חם</li>
+                        <li>כלי חיתוך</li>
+                    </ul>
+                </div>
+                <div class="connector-card">
+                    <h4>חומרי עזר</h4>
+                    <ul style="text-align: right;">
+                        <li>צינור מתכווץ</li>
+                        <li>סרט בידוד</li>
+                        <li>פקקי בידוד</li>
+                        <li>חומר הלחמה</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>חישוב חתך מוליך לפי זרם</h2>
+            <div class="code-example">
+                <h3>נוסחה לחישוב חתך מינימלי:</h3>
+                <pre>
+חתך (mm²) = זרם (A) × מקדם בטיחות × מקדם טמפרטורה
+
+דוגמה:
+- זרם: 10A
+- מקדם בטיחות: 1.25
+- מקדם טמפרטורה: 1.1
+- חתך נדרש: 10 × 1.25 × 1.1 = 13.75 mm²
+- חתך מומלץ: 16 mm²
+                </pre>
+            </div>
+            
+            <h3>טבלת מקדמי בטיחות:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>מקדם בטיחות</th>
+                        <th>הסבר</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>תאורה</td>
+                        <td>1.0</td>
+                        <td>עומס קבוע, טמפרטורה נמוכה</td>
+                    </tr>
+                    <tr>
+                        <td>שקעים</td>
+                        <td>1.25</td>
+                        <td>עומס משתנה, טמפרטורה בינונית</td>
+                    </tr>
+                    <tr>
+                        <td>מכשירים חזקים</td>
+                        <td>1.5</td>
+                        <td>עומס גבוה, טמפרטורה גבוהה</td>
+                    </tr>
+                    <tr>
+                        <td>מנועים</td>
+                        <td>1.75</td>
+                        <td>זרם התחלה גבוה</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>כבלים לתקשורת נתונים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג כבל</th>
+                        <th>מהירות מקסימלית</th>
+                        <th>טווח מקסימלי</th>
+                        <th>עצה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע (₪/מ')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cat5e</td>
+                        <td>1Gbps</td>
+                        <td>100 מטר</td>
+                        <td>100Ω</td>
+                        <td>רשתות ביתיות</td>
+                        <td>₪5-12</td>
+                    </tr>
+                    <tr>
+                        <td>Cat6</td>
+                        <td>10Gbps</td>
+                        <td>55 מטר</td>
+                        <td>100Ω</td>
+                        <td>רשתות עסקיות</td>
+                        <td>₪8-18</td>
+                    </tr>
+                    <tr>
+                        <td>Cat6a</td>
+                        <td>10Gbps</td>
+                        <td>100 מטר</td>
+                        <td>100Ω</td>
+                        <td>רשתות מהירות</td>
+                        <td>₪12-25</td>
+                    </tr>
+                    <tr>
+                        <td>Cat7</td>
+                        <td>10Gbps</td>
+                        <td>100 מטר</td>
+                        <td>100Ω</td>
+                        <td>רשתות מתקדמות</td>
+                        <td>₪15-30</td>
+                    </tr>
+                    <tr>
+                        <td>Cat8</td>
+                        <td>40Gbps</td>
+                        <td>30 מטר</td>
+                        <td>100Ω</td>
+                        <td>מרכזי נתונים</td>
+                        <td>₪25-50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ כללי בטיחות חשובים</h3>
+            <ul>
+                <li><strong>כיבוי חשמל:</strong> כבה תמיד את החשמל לפני עבודה</li>
+                <li><strong>בדיקת מתח:</strong> בדוק שאין מתח לפני עבודה</li>
+                <li><strong>חתך נכון:</strong> אל תשתמש במוליך דק מדי</li>
+                <li><strong>בידוד:</strong> וודא בידוד תקין של כל החיבורים</li>
+                <li><strong>עומס:</strong> אל תחרוג מהעומס המקסימלי</li>
+                <li><strong>טמפרטורה:</strong> שים לב לטמפרטורת העבודה</li>
+                <li><strong>אדמה:</strong> חבר תמיד את מוליך האדמה</li>
+                <li><strong>בדיקה:</strong> בדוק את החיבורים עם מולטימטר</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם כבלים</h2>
+            <ul>
+                <li><strong>חיתוך:</strong> השתמש בכלי חיתוך חדים ונקיים</li>
+                <li><strong>הסרת בידוד:</strong> הסר רק את הבידוד הנדרש</li>
+                <li><strong>הלחמה:</strong> השתמש בחומר הלחמה איכותי</li>
+                <li><strong>בידוד:</strong> בודד כל חיבור בנפרד</li>
+                <li><strong>סימון:</strong> סמן כבלים ארוכים</li>
+                <li><strong>סידור:</strong> סדר כבלים בצורה מסודרת</li>
+                <li><strong>בדיקה:</strong> בדוק חיבורים לפני הפעלה</li>
+                <li><strong>תחזוקה:</strong> בדוק כבלים באופן קבוע</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>יישומים נפוצים לפי סוג כבל</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>סוג כבל מומלץ</th>
+                        <th>חתך נדרש</th>
+                        <th>אורך מקסימלי</th>
+                        <th>הערות מיוחדות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>תאורה LED</td>
+                        <td>מוליך גמיש</td>
+                        <td>0.5-1.0 mm²</td>
+                        <td>50 מטר</td>
+                        <td>זרם נמוך, מתח נמוך</td>
+                    </tr>
+                    <tr>
+                        <td>שקעים ביתיים</td>
+                        <td>כבל NYM</td>
+                        <td>2.5 mm²</td>
+                        <td>100 מטר</td>
+                        <td>מתח גבוה, זרם משתנה</td>
+                    </tr>
+                    <tr>
+                        <td>מזגן ביתי</td>
+                        <td>כבל גמיש</td>
+                        <td>4.0 mm²</td>
+                        <td>30 מטר</td>
+                        <td>זרם גבוה, עומס קבוע</td>
+                    </tr>
+                    <tr>
+                        <td>רשת מחשבים</td>
+                        <td>Cat6</td>
+                        <td>-</td>
+                        <td>100 מטר</td>
+                        <td>נתונים דיגיטליים</td>
+                    </tr>
+                    <tr>
+                        <td>אנטנה</td>
+                        <td>RG58</td>
+                        <td>-</td>
+                        <td>50 מטר</td>
+                        <td>אותות RF</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע תעשייתי</td>
+                        <td>כבל NYM</td>
+                        <td>6.0-10.0 mm²</td>
+                        <td>100 מטר</td>
+                        <td>זרם גבוה, עומס משתנה</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - כבלים ומוליכים</p>
+    </footer>
+</body>
+</html> 

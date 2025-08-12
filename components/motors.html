@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מנועים חשמליים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .motor-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .dc { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .stepper { background: linear-gradient(45deg, #000000, #333333); }
+        .servo { background: linear-gradient(45deg, #4B0082, #800080); }
+        .brushless { background: linear-gradient(45deg, #DC143C, #FF4500); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .motor-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .spec-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+            text-align: center;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>מנועים חשמליים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי מנועים, מפרטים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי מנועים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מנוע</th>
+                        <th>תמונה</th>
+                        <th>עיקרון פעולה</th>
+                        <th>בקרה</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מנוע DC</td>
+                        <td><div class="motor-image dc"></div></td>
+                        <td>זרם ישר דרך סלילים</td>
+                        <td>מתח וזרם</td>
+                        <td>פשוט, זול, מהיר</td>
+                        <td>בלאי מברשות, רעש</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע צעדים</td>
+                        <td><div class="motor-image stepper"></div></td>
+                        <td>סיבוב מדויק לפי צעדים</td>
+                        <td>פולסים דיגיטליים</td>
+                        <td>דיוק גבוה, בקרה מדויקת</td>
+                        <td>מהירות נמוכה, רעש</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע סרוו</td>
+                        <td><div class="motor-image servo"></div></td>
+                        <td>בקרת זווית מדויקת</td>
+                        <td>אות PWM</td>
+                        <td>דיוק זווית, פשוט</td>
+                        <td>טווח מוגבל, מהירות נמוכה</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע ללא מברשות</td>
+                        <td><div class="motor-image brushless"></div></td>
+                        <td>בקרה אלקטרונית</td>
+                        <td>בקר מיוחד</td>
+                        <td>יעיל, שקט, עמיד</td>
+                        <td>יקר, מורכב</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מנועי DC נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</th>
+                        <th>מהירות</th>
+                        <th>מומנט</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מנוע 3V</td>
+                        <td>3V</td>
+                        <td>100-200mA</td>
+                        <td>5000-8000 RPM</td>
+                        <td>0.5-1 Ncm</td>
+                        <td>צעצועים, מודלים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע 6V</td>
+                        <td>6V</td>
+                        <td>200-500mA</td>
+                        <td>6000-10000 RPM</td>
+                        <td>1-3 Ncm</td>
+                        <td>מודלים, רובוטים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע 12V</td>
+                        <td>12V</td>
+                        <td>500mA-2A</td>
+                        <td>8000-15000 RPM</td>
+                        <td>3-10 Ncm</td>
+                        <td>רובוטים, מערכות אוטומציה</td>
+                    </tr>
+                    <tr>
+                        <td>מנוע 24V</td>
+                        <td>24V</td>
+                        <td>1A-5A</td>
+                        <td>10000-20000 RPM</td>
+                        <td>10-50 Ncm</td>
+                        <td>מערכות תעשייתיות</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מנועי צעדים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>מספר צעדים</th>
+                        <th>זווית צעד</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם פיז</th>
+                        <th>מומנט מקסימלי</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>28BYJ-48</td>
+                        <td>2048</td>
+                        <td>5.625°</td>
+                        <td>5V</td>
+                        <td>200mA</td>
+                        <td>3.2 Ncm</td>
+                    </tr>
+                    <tr>
+                        <td>NEMA 17</td>
+                        <td>200</td>
+                        <td>1.8°</td>
+                        <td>12V</td>
+                        <td>1.5A</td>
+                        <td>40 Ncm</td>
+                    </tr>
+                    <tr>
+                        <td>NEMA 23</td>
+                        <td>200</td>
+                        <td>1.8°</td>
+                        <td>24V</td>
+                        <td>3A</td>
+                        <td>120 Ncm</td>
+                    </tr>
+                    <tr>
+                        <td>NEMA 34</td>
+                        <td>200</td>
+                        <td>1.8°</td>
+                        <td>48V</td>
+                        <td>6A</td>
+                        <td>400 Ncm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מנועי סרוו</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>מתח עבודה</th>
+                        <th>זרם עבודה</td>
+                        <th>טווח זווית</th>
+                        <th>מהירות</th>
+                        <th>מומנט</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SG90</td>
+                        <td>4.8V-6V</td>
+                        <td>100-300mA</td>
+                        <td>0°-180°</td>
+                        <td>0.12s/60°</td>
+                        <td>1.8 kg⋅cm</td>
+                    </tr>
+                    <tr>
+                        <td>MG996R</td>
+                        <td>4.8V-7.2V</td>
+                        <td>200-500mA</td>
+                        <td>0°-180°</td>
+                        <td>0.17s/60°</td>
+                        <td>10 kg⋅cm</td>
+                    </tr>
+                    <tr>
+                        <td>DS3218</td>
+                        <td>6V-8.4V</td>
+                        <td>300-800mA</td>
+                        <td>0°-270°</td>
+                        <td>0.08s/60°</td>
+                        <td>18 kg⋅cm</td>
+                    </tr>
+                    <tr>
+                        <td>LX-16A</td>
+                        <td>6V-8.4V</td>
+                        <td>500mA-1A</td>
+                        <td>0°-240°</td>
+                        <td>0.196s/60°</td>
+                        <td>16 kg⋅cm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>בקרי מנועים</h2>
+            
+            <h3>בקר מנוע DC (L298N)</h3>
+            <div class="circuit-diagram">
+                <h4>מפרטים טכניים:</h4>
+                <div class="motor-specs">
+                    <div class="spec-card">
+                        <h5>מתח אספקה</h5>
+                        <p>5V-35V</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>זרם מקסימלי</h5>
+                        <p>2A לכל ערוץ</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>מספר ערוצים</h5>
+                        <p>2 ערוצים</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>בקרה</h5>
+                        <p>PWM + כיוון</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>בקר מנוע צעדים (A4988)</h3>
+            <div class="circuit-diagram">
+                <h4>מפרטים טכניים:</h4>
+                <div class="motor-specs">
+                    <div class="spec-card">
+                        <h5>מתח אספקה</h5>
+                        <p>8V-35V</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>זרם מקסימלי</h5>
+                        <p>2A</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>רזולוציה</h5>
+                        <p>1/16 צעד</p>
+                    </div>
+                    <div class="spec-card">
+                        <h5>בקרה</h5>
+                        <p>STEP + DIR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלים בסיסיים עם מנועים</h2>
+            
+            <h3>מעגל מנוע DC פשוט</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>מנוע DC</li>
+                    <li>טרנזיסטור NPN (2N2222)</li>
+                    <li>נגד 1KΩ (בסיס)</li>
+                    <li>דיודת הגנה (1N4007)</li>
+                    <li>מקור מתח מתאים</li>
+                </ul>
+            </div>
+
+            <h3>מעגל מנוע סרוו</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>מנוע סרוו</li>
+                    <li>מיקרו-בקר (Arduino)</li>
+                    <li>מקור מתח 5V-6V</li>
+                    <li>קבל 100µF (עדכון)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>רכיבי עזר למנועים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>רכיב</th>
+                        <th>תפקיד</th>
+                        <th>דוגמאות</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>גלגלי שיניים</td>
+                        <td>העברת תנועה</td>
+                        <td>גלגלי שיניים ישרים, חלזוניים</td>
+                        <td>₪5-50</td>
+                    </tr>
+                    <tr>
+                        <td>רצועות</td>
+                        <td>העברת תנועה</td>
+                        <td>רצועות T, רצועות V</td>
+                        <td>₪10-100</td>
+                    </tr>
+                    <tr>
+                        <td>צמדות</td>
+                        <td>חיבור לציר</td>
+                        <td>צמדות גמישות, צמדות קשיחות</td>
+                        <td>₪15-80</td>
+                    </tr>
+                    <tr>
+                        <td>מקרי חום</td>
+                        <td>קירור</td>
+                        <td>מקררי חום פסיביים, אקטיביים</td>
+                        <td>₪20-150</td>
+                    </tr>
+                    <tr>
+                        <td>חיישני מהירות</td>
+                        <td>מדידת מהירות</td>
+                        <td>חיישני Hall, חיישני אופטי</td>
+                        <td>₪25-100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ אזהרות חשובות</h3>
+            <ul>
+                <li><strong>מתח גבוה:</strong> עבוד בזהירות עם מנועי 24V ומעלה</li>
+                <li><strong>זרם גבוה:</strong> השתמש בנתיכים מתאימים</li>
+                <li><strong>קירור:</strong> תמיד השתמש במקרר חום למנועים חזקים</li>
+                <li><strong>בטיחות:</strong> מנועים מסתובבים יכולים להיות מסוכנים</li>
+                <li><strong>עדכון:</strong> השתמש בקבלי עדכון קרוב למנועים</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם מנועים</h2>
+            <ul>
+                <li><strong>בחירת מנוע:</strong> בחר לפי מומנט ומהירות נדרשים</li>
+                <li><strong>בקרה:</strong> השתמש בבקרים מתאימים לסוג המנוע</li>
+                <li><strong>מתח:</strong> אל תחרוג ממתח העבודה המקסימלי</li>
+                <li><strong>זרם:</strong> בדוק זרם התחלה וזרם עבודה</li>
+                <li><strong>קירור:</strong> תכנן מערכת קירור מתאימה</li>
+                <li><strong>תחזוקה:</strong> נקה ובדוק מנועים באופן קבוע</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>יישומים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>סוג מנוע מומלץ</th>
+                        <th>בקר נדרש</th>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>רובוטיקה</td>
+                        <td>DC + צעדים</td>
+                        <td>L298N + A4988</td>
+                        <td>רובוטים, אוטומציה</td>
+                    </tr>
+                    <tr>
+                        <td>מודלים</td>
+                        <td>סרוו + DC</td>
+                        <td>Arduino + L298N</td>
+                        <td>מכוניות, מטוסים</td>
+                    </tr>
+                    <tr>
+                        <td>מדפסות 3D</td>
+                        <td>צעדים</td>
+                        <td>A4988/TMC2208</td>
+                        <td>מדפסות, CNC</td>
+                    </tr>
+                    <tr>
+                        <td>מערכות תעשייתיות</td>
+                        <td>DC חזק + צעדים</td>
+                        <td>בקרים תעשייתיים</td>
+                        <td>מערכות ייצור</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - מנועים</p>
+    </footer>
+</body>
+</html> 

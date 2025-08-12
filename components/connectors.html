@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחברים אלקטרוניים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .connector-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .header { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .usb { background: linear-gradient(45deg, #000000, #333333); }
+        .audio { background: linear-gradient(45deg, #4B0082, #800080); }
+        .power { background: linear-gradient(45deg, #DC143C, #FF4500); }
+        .pinout-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .pinout-card {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .pin-number {
+            font-weight: bold;
+            color: #004466;
+            margin: 5px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            border: 1px solid #004466;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>מחברים אלקטרוניים - מדריך מקיף</h1>
+        <p>מידע מפורט על סוגי מחברים, חיבורים ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי מחברים עיקריים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מחבר</th>
+                        <th>תמונה</th>
+                        <th>מספר פינים</th>
+                        <th>מתח מקסימלי</th>
+                        <th>זרם מקסימלי</th>
+                        <th>שימושים נפוצים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Header זכר/נקבה</td>
+                        <td><div class="connector-image header"></div></td>
+                        <td>2-40</td>
+                        <td>300V</td>
+                        <td>3A</td>
+                        <td>מעגלים מודפסים, חיבורים פנימיים</td>
+                    </tr>
+                    <tr>
+                        <td>USB Type-A</td>
+                        <td><div class="connector-image usb"></div></td>
+                        <td>4</td>
+                        <td>5V</td>
+                        <td>500mA-3A</td>
+                        <td>מחשבים, מכשירים ניידים</td>
+                    </tr>
+                    <tr>
+                        <td>USB Type-C</td>
+                        <td><div class="connector-image usb"></div></td>
+                        <td>24</td>
+                        <td>20V</td>
+                        <td>5A</td>
+                        <td>מכשירים מודרניים, טעינה מהירה</td>
+                    </tr>
+                    <tr>
+                        <td>Audio 3.5mm</td>
+                        <td><div class="connector-image audio"></div></td>
+                        <td>3-4</td>
+                        <td>12V</td>
+                        <td>100mA</td>
+                        <td>אוזניות, מיקרופונים</td>
+                    </tr>
+                    <tr>
+                        <td>DC Power</td>
+                        <td><div class="connector-image power"></div></td>
+                        <td>2</td>
+                        <td>24V</td>
+                        <td>5A</td>
+                        <td>ספקי כוח, מכשירים ניידים</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מחברי Header נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>מספר פינים</th>
+                        <th>מרחק בין פינים</th>
+                        <th>גובה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>2.54mm</td>
+                        <td>8.5mm</td>
+                        <td>חיבורי כוח, מתגים</td>
+                        <td>₪0.50</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2.54mm</td>
+                        <td>8.5mm</td>
+                        <td>חיבורי תקשורת, חיישנים</td>
+                        <td>₪0.80</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>2.54mm</td>
+                        <td>8.5mm</td>
+                        <td>חיבורי מיקרו-בקר</td>
+                        <td>₪1.20</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>2.54mm</td>
+                        <td>8.5mm</td>
+                        <td>חיבורי LCD, חיישנים מרובים</td>
+                        <td>₪2.00</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>2.54mm</td>
+                        <td>8.5mm</td>
+                        <td>חיבורי Raspberry Pi</td>
+                        <td>₪4.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי USB</h2>
+            
+            <h3>USB Type-A (סטנדרטי)</h3>
+            <div class="pinout-diagram">
+                <div class="pinout-card">
+                    <h4>פין 1</h4>
+                    <div class="pin-number">1</div>
+                    <p>VCC (+5V)</p>
+                </div>
+                <div class="pinout-card">
+                    <h4>פין 2</h4>
+                    <div class="pin-number">2</div>
+                    <p>Data-</p>
+                </div>
+                <div class="pinout-card">
+                    <h4>פין 3</h4>
+                    <div class="pin-number">3</div>
+                    <p>Data+</p>
+                </div>
+                <div class="pinout-card">
+                    <h4>פין 4</h4>
+                    <div class="pin-number">4</div>
+                    <p>GND</p>
+                </div>
+            </div>
+
+            <h3>USB Type-C</h3>
+            <p>מחבר USB Type-C הוא דו-כיווני עם 24 פינים המאפשרים:</p>
+            <ul>
+                <li><strong>Power Delivery:</strong> עד 100W (20V, 5A)</li>
+                <li><strong>DisplayPort:</strong> תמיכה ב-4K</li>
+                <li><strong>Thunderbolt:</strong> תמיכה בפרוטוקול Thunderbolt</li>
+                <li><strong>דו-כיווניות:</strong> אין צורך בכיוון מסוים</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>מחברי Audio</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מחבר</th>
+                        <th>מספר פינים</th>
+                        <th>תפקיד הפינים</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TRS 3.5mm</td>
+                        <td>3</td>
+                        <td>Left, Right, Ground</td>
+                        <td>אוזניות סטריאו</td>
+                    </tr>
+                    <tr>
+                        <td>TRRS 3.5mm</td>
+                        <td>4</td>
+                        <td>Left, Right, Ground, Microphone</td>
+                        <td>אוזניות עם מיקרופון</td>
+                    </tr>
+                    <tr>
+                        <td>TRS 6.35mm</td>
+                        <td>3</td>
+                        <td>Left, Right, Ground</td>
+                        <td>מכשירי שמע מקצועיים</td>
+                    </tr>
+                    <tr>
+                        <td>XLR</td>
+                        <td>3</td>
+                        <td>Hot, Cold, Ground</td>
+                        <td>מיקרופונים מקצועיים</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מחברי כוח</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מחבר</th>
+                        <th>מתח מקסימלי</th>
+                        <th>זרם מקסימלי</th>
+                        <th>קוטר חיצוני</th>
+                        <th>שימושים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DC 2.1mm</td>
+                        <td>24V</td>
+                        <td>5A</td>
+                        <td>2.1mm</td>
+                        <td>מכשירים ניידים, ספקי כוח</td>
+                    </tr>
+                    <tr>
+                        <td>DC 2.5mm</td>
+                        <td>24V</td>
+                        <td>3A</td>
+                        <td>2.5mm</td>
+                        <td>מכשירים קטנים</td>
+                    </tr>
+                    <tr>
+                        <td>DC 3.5mm</td>
+                        <td>24V</td>
+                        <td>8A</td>
+                        <td>3.5mm</td>
+                        <td>מכשירי כוח גבוה</td>
+                    </tr>
+                    <tr>
+                        <td>Barrel Connector</td>
+                        <td>48V</td>
+                        <td>10A</td>
+                        <td>5.5mm</td>
+                        <td>מכשירים תעשייתיים</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם מחברים</h2>
+            <ul>
+                <li><strong>כיוון חיבור:</strong> תמיד בדוק את הכיוון לפני החיבור</li>
+                <li><strong>כוח:</strong> אל תחרוג מהזרם והמתח המקסימלי</li>
+                <li><strong>חיבורים:</strong> השתמש בחצאי מחברים לחיבורים זמניים</li>
+                <li><strong>ריתוך:</strong> שים לב לטמפרטורת הריתוך המומלצת</li>
+                <li><strong>איכות:</strong> השתמש במחברים איכותיים לחיבורים חשובים</li>
+                <li><strong>ניקוי:</strong> נקה מחברים לפני שימוש מחדש</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>כלי עבודה נדרשים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תפקיד</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מלחם</td>
+                        <td>ריתוך חיבורים</td>
+                        <td>₪50-200</td>
+                    </tr>
+                    <tr>
+                        <td>מלחם SMD</td>
+                        <td>ריתוך רכיבים קטנים</td>
+                        <td>₪100-300</td>
+                    </tr>
+                    <tr>
+                        <td>צבת</td>
+                        <td>החזקת רכיבים</td>
+                        <td>₪20-50</td>
+                    </tr>
+                    <tr>
+                        <td>מסיר בידוד</td>
+                        <td>הסרת בידוד כבלים</td>
+                        <td>₪15-40</td>
+                    </tr>
+                    <tr>
+                        <td>מלחם חם</td>
+                        <td>ריתוך רכיבים SMD</td>
+                        <td>₪200-500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - מחברים</p>
+    </footer>
+</body>
+</html> 

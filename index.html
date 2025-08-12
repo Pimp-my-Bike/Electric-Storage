@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחסן ומאגר רכיבים אלקטרוניים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+        }
+        header h1, footer p {
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>מחסן ומאגר רכיבים אלקטרוניים</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">דף הבית</a></li>
+            <li><a href="#categories">קטגוריות</a></li>
+            <li><a href="#search">חיפוש רכיב</a></li>
+            <li><a href="#contact">צור קשר</a></li>
+            <li><a href="#about">אודות</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="home">
+        <h2>ברוכים הבאים למחסן הרכיבים</h2>
+        <p>כאן תמצאו מאגר מקיף של רכיבים אלקטרוניים מכל הסוגים, עם מידע טכני, מלאי עדכני והזמנות ישירות.</p>
+    </section>
+
+    <section id="categories">
+        <h2>קטגוריות רכיבים</h2>
+        <ul>
+            <li><a href="#resistors">נגדים</a></li>
+            <li><a href="#capacitors">קבלים</a></li>
+            <li><a href="#transistors">טרנזיסטורים</a></li>
+            <li><a href="#ics">מעגלים משולבים (IC)</a></li>
+            <li><a href="#connectors">מחברים</a></li>
+            <li><a href="#sensors">חיישנים</a></li>
+            <li><a href="#diodes">דיודות</a></li>
+            <li><a href="#power">ספקי כוח</a></li>
+            <li><a href="#motors">מנועים</a></li>
+            <li><a href="#displays">צגים</a></li>
+            <br>
+
+            <h2>קטגוריות רכיבים מסוכמות</h2>
+
+            <li><a href="components/resistors.html">נגדים - מדריך צבעים</a></li>
+            <li><a href="components/capacitors.html">קבלים - מדריך מקיף</a></li>
+            <li><a href="components/transistors.html">טרנזיסטורים - מדריך מקיף</a></li>
+            <li><a href="components/ics.html">מעגלים משולבים (IC)</a></li>
+            <li><a href="components/connectors.html">מחברים אלקטרוניים</a></li>
+            <li><a href="components/sensors.html">חיישנים אלקטרוניים</a></li>
+            <li><a href="components/power-supplies.html">ספקי כוח</a></li>
+            <li><a href="components/motors.html">מנועים חשמליים</a></li>
+            <li><a href="components/displays.html">צגים אלקטרוניים</a></li>
+            <li><a href="components/measurement-tools.html">כלי מדידה</a></li>
+            <li><a href="components/rf-modules.html">רכיבי RF</a></li>
+            <li><a href="components/communication-modules.html">רכיבי תקשורת</a></li>
+            <li><a href="components/cables-wires.html">כבלים ומוליכים</a></li>
+            <li><a href="components/tools-equipment.html">כלים וציוד</a></li>
+ 
+        </ul>
+    </section>
+
+    <section id="transistors">
+        <h3>טרנזיסטורים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג</th>
+                    <th>זרם מקסימלי</th>
+                    <th>מתח מקסימלי</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>T-3001</td>
+                    <td>NPN BC547</td>
+                    <td>100mA</td>
+                    <td>45V</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>T-3002</td>
+                    <td>PNP BC557</td>
+                    <td>100mA</td>
+                    <td>45V</td>
+                    <td>350</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="ics">
+        <h3>מעגלים משולבים (IC)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>דגם</th>
+                    <th>פונקציה</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IC-4001</td>
+                    <td>NE555</td>
+                    <td>טיימר</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>IC-4002</td>
+                    <td>LM358</td>
+                    <td>מגבר אופראציוני כפול</td>
+                    <td>150</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="connectors">
+        <h3>מחברים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג מחבר</th>
+                    <th>פינים</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CN-7001</td>
+                    <td>Header זכר</td>
+                    <td>40</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>CN-7002</td>
+                    <td>USB Type-C</td>
+                    <td>24</td>
+                    <td>200</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="sensors">
+        <h3>חיישנים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג חיישן</th>
+                    <th>טווח מדידה</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>S-8001</td>
+                    <td>חיישן טמפרטורה LM35</td>
+                    <td>-55°C עד 150°C</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>S-8002</td>
+                    <td>חיישן מרחק אולטראסוני HC-SR04</td>
+                    <td>2cm עד 400cm</td>
+                    <td>75</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="diodes">
+        <h3>דיודות</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג</th>
+                    <th>זרם מקסימלי</th>
+                    <th>מתח מקסימלי</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DIO-9001</td>
+                    <td>1N4007</td>
+                    <td>1A</td>
+                    <td>1000V</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>DIO-9002</td>
+                    <td>1N4148</td>
+                    <td>300mA</td>
+                    <td>100V</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>DIO-9003</td>
+                    <td>1N4001</td>
+                    <td>1A</td>
+                    <td>50V</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>DIO-9004</td>
+                    <td>1N4004</td>
+                    <td>1A</td>
+                    <td>400V</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>DIO-9005</td>
+                    <td>1N5408</td>
+                    <td>3A</td>
+                    <td>1000V</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>DIO-9006</td>
+                    <td>LED אדום</td>
+                    <td>20mA</td>
+                    <td>2V</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>DIO-9007</td>
+                    <td>LED ירוק</td>
+                    <td>20mA</td>
+                    <td>2.1V</td>
+                    <td>750</td>
+                </tr>
+                <tr>
+                    <td>DIO-9008</td>
+                    <td>LED כחול</td>
+                    <td>20mA</td>
+                    <td>3.3V</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>DIO-9009</td>
+                    <td>Zener 5.1V</td>
+                    <td>500mA</td>
+                    <td>5.1V</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>DIO-9010</td>
+                    <td>Zener 12V</td>
+                    <td>500mA</td>
+                    <td>12V</td>
+                    <td>200</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="power">
+        <h3>ספקי כוח</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג ספק</th>
+                    <th>מתח יציאה</th>
+                    <th>זרם מקסימלי</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>P-10001</td>
+                    <td>ספק ממותג</td>
+                    <td>12V</td>
+                    <td>5A</td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td>P-10002</td>
+                    <td>ספק ליניארי</td>
+                    <td>5V</td>
+                    <td>2A</td>
+                    <td>30</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="resistors">
+        <h3>נגדים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>ערך</th>
+                    <th>סבילות</th>
+                    <th>הספק</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>R-1001</td>
+                    <td>220Ω</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>R-1002</td>
+                    <td>1KΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>R-1003</td>
+                    <td>10KΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>750</td>
+                </tr>
+                <tr>
+                    <td>R-1004</td>
+                    <td>100KΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>R-1005</td>
+                    <td>1MΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>R-1006</td>
+                    <td>4.7Ω</td>
+                    <td>±5%</td>
+                    <td>1/2W</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>R-1007</td>
+                    <td>10Ω</td>
+                    <td>±5%</td>
+                    <td>1/2W</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>R-1008</td>
+                    <td>47Ω</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>650</td>
+                </tr>
+                <tr>
+                    <td>R-1009</td>
+                    <td>470Ω</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>700</td>
+                </tr>
+                <tr>
+                    <td>R-1010</td>
+                    <td>4.7KΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>550</td>
+                </tr>
+                <tr>
+                    <td>R-1011</td>
+                    <td>47KΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>R-1012</td>
+                    <td>470KΩ</td>
+                    <td>±5%</td>
+                    <td>1/4W</td>
+                    <td>450</td>
+                </tr>
+                <tr>
+                    <td>R-1013</td>
+                    <td>2.2KΩ</td>
+                    <td>±1%</td>
+                    <td>1/4W</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>R-1014</td>
+                    <td>22KΩ</td>
+                    <td>±1%</td>
+                    <td>1/4W</td>
+                    <td>180</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="capacitors">
+        <h3>קבלים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>ערך</th>
+                    <th>סוג</th>
+                    <th>מתח עבודה</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>C-2001</td>
+                    <td>100nF</td>
+                    <td>קרמיקה</td>
+                    <td>50V</td>
+                    <td>1200</td>
+                </tr>
+                <tr>
+                    <td>C-2002</td>
+                    <td>10µF</td>
+                    <td>אלקטרוליטי</td>
+                    <td>25V</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>C-2003</td>
+                    <td>100µF</td>
+                    <td>אלקטרוליטי</td>
+                    <td>16V</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>C-2004</td>
+                    <td>1µF</td>
+                    <td>קרמיקה</td>
+                    <td>50V</td>
+                    <td>900</td>
+                </tr>
+                <tr>
+                    <td>C-2005</td>
+                    <td>220pF</td>
+                    <td>קרמיקה</td>
+                    <td>50V</td>
+                    <td>1500</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="motors">
+        <h3>מנועים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג מנוע</th>
+                    <th>מתח עבודה</th>
+                    <th>זרם עבודה</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>M-11001</td>
+                    <td>מנוע DC עם מברשות</td>
+                    <td>12V</td>
+                    <td>200mA</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>M-11002</td>
+                    <td>מנוע צעדים</td>
+                    <td>5V</td>
+                    <td>500mA</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>M-11003</td>
+                    <td>מנוע סרוו</td>
+                    <td>4.8V-6V</td>
+                    <td>300mA</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>M-11004</td>
+                    <td>מנוע DC ללא מברשות</td>
+                    <td>24V</td>
+                    <td>1A</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="displays">
+        <h3>צגים</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>מספר קטלוגי</th>
+                    <th>סוג צג</th>
+                    <th>רזולוציה</th>
+                    <th>ממשק</th>
+                    <th>יחידות זמינות</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LCD-12001</td>
+                    <td>LCD 16x2</td>
+                    <td>16x2 תווים</td>
+                    <td>I2C</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>LCD-12002</td>
+                    <td>LCD 20x4</td>
+                    <td>20x4 תווים</td>
+                    <td>I2C</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>OLED-12003</td>
+                    <td>OLED 0.96"</td>
+                    <td>128x64 פיקסלים</td>
+                    <td>I2C</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>OLED-12004</td>
+                    <td>OLED 1.3"</td>
+                    <td>128x64 פיקסלים</td>
+                    <td>SPI</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>TFT-12005</td>
+                    <td>TFT צבעוני</td>
+                    <td>240x320 פיקסלים</td>
+                    <td>SPI</td>
+                    <td>40</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<footer>
+    <section id="contact">
+        <h2>צור קשר</h2>
+        <form>
+            <label for="name">שם:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="email">אימייל:</label>
+            <input type="email" id="email" name="email">
+            <br>
+            <label for="message">הודעה:</label>
+            <textarea id="message" name="message"></textarea>
+            <br>
+            <button type="submit">שלח</button>
+        </form>
+        <p>טלפון: 03-1234567 | אימייל: info@electrostore.co.il</p>
+    </section>
+    <p>&copy; 2025 מחסן ומאגר רכיבים אלקטרוניים</p>
+</footer>
+
+</body>
+</html>

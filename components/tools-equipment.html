@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>כלים וציוד אלקטרוני - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .tool-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .multimeter { background: linear-gradient(45deg, #FFD700, #FFA500); }
+        .oscilloscope { background: linear-gradient(45deg, #32CD32, #228B22); }
+        .soldering { background: linear-gradient(45deg, #4B0082, #800080); }
+        .hand-tools { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .power-tools { background: linear-gradient(45deg, #00CED1, #20B2AA); }
+        .measurement { background: linear-gradient(45deg, #FF69B4, #DC143C); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .tool-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .category-card {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+        }
+        .essential-tools {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .advanced-tools {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .professional-tools {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .price-range {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .price-card {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .budget { background-color: #28a745; }
+        .mid-range { background-color: #ffc107; color: #000; }
+        .high-end { background-color: #dc3545; }
+        .professional { background-color: #6f42c1; }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: left;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .tool-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>כלים וציוד אלקטרוני - מדריך מקיף</h1>
+        <p>רשימות כלים מפורטות לפי קטגוריות ושימושים</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+            <a href="displays.html">צגים</a>
+            <a href="measurement-tools.html">כלי מדידה</a>
+            <a href="rf-modules.html">רכיבי RF</a>
+            <a href="communication-modules.html">רכיבי תקשורת</a>
+            <a href="cables-wires.html">כבלים ומוליכים</a>
+        </div>
+
+        <div class="info-section">
+            <h2>קטגוריות כלים עיקריות</h2>
+            <div class="tool-categories">
+                <div class="category-card">
+                    <h3>🔧 כלי מדידה</h3>
+                    <p>מולטימטרים, אוסצילוסקופים, מחוללי אותות</p>
+                    <p><strong>שימוש:</strong> אבחון ובדיקת מעגלים</p>
+                </div>
+                <div class="category-card">
+                    <h3>🔌 כלי הלחמה</h3>
+                    <p>מלחמים, תחנות הלחמה, חומרי הלחמה</p>
+                    <p><strong>שימוש:</strong> חיבור רכיבים למעגלים</p>
+                </div>
+                <div class="category-card">
+                    <h3>🛠️ כלי יד</h3>
+                    <p>מברגים, צבתות, חותכים, מברגים</p>
+                    <p><strong>שימוש:</strong> עבודה פיזית על רכיבים</p>
+                </div>
+                <div class="category-card">
+                    <h3>⚡ כלי חשמל</h3>
+                    <p>מקדחות, מסורים, מכשירי ריתוך</p>
+                    <p><strong>שימוש:</strong> עיבוד חומרים ופלסטיק</p>
+                </div>
+                <div class="category-card">
+                    <h3>📐 כלי מדידה פיזיים</h3>
+                    <p>סרגלים, מד-זווית, קליברים</p>
+                    <p><strong>שימוש:</strong> מדידות מדויקות</p>
+                </div>
+                <div class="category-card">
+                    <h3>💻 ציוד מחשב</h3>
+                    <p>מחשבים, תכנות, סימולציות</p>
+                    <p><strong>שימוש:</strong> תכנון ובדיקת מעגלים</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="essential-tools">
+            <h2>🛠️ כלים חיוניים למתחילים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>תיאור</th>
+                        <th>מחיר ממוצע</th>
+                        <th>חשיבות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מולטימטר דיגיטלי</td>
+                        <td><div class="tool-image multimeter"></div></td>
+                        <td>מדידת מתח, זרם והתנגדות</td>
+                        <td>₪50-200</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מלחם בסיסי</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>הלחמת רכיבים בסיסית</td>
+                        <td>₪30-100</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מברג פיליפס</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>פתיחת ברגים</td>
+                        <td>₪15-50</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>צבת</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>אחיזת רכיבים קטנים</td>
+                        <td>₪20-60</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>חותך כבלים</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>חיתוך כבלים ומוליכים</td>
+                        <td>₪25-80</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>סרגל</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>מדידות בסיסיות</td>
+                        <td>₪10-30</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mid-range-tools">
+            <h2>🔧 כלים מתקדמים למתנסים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>תיאור</th>
+                        <th>מחיר ממוצע</th>
+                        <th>רמת מתקדם</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>תחנת הלחמה</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>הלחמה מתקדמת עם בקרת טמפרטורה</td>
+                        <td>₪200-800</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>אוסצילוסקופ דיגיטלי</td>
+                        <td><div class="tool-image oscilloscope"></div></td>
+                        <td>בדיקת אותות ומעגלים</td>
+                        <td>₪500-2000</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מחולל אותות</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>יצירת אותות לבדיקה</td>
+                        <td>₪300-1200</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מקדחה חשמלית</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>קדיחת חורים בלוחות</td>
+                        <td>₪150-600</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מסור חשמלי</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>חיתוך לוחות וחומרים</td>
+                        <td>₪200-800</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>קליבר דיגיטלי</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>מדידות מדויקות מאוד</td>
+                        <td>₪100-400</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="advanced-tools">
+            <h2>🚀 כלים מתקדמים למקצוענים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>תיאור</th>
+                        <th>מחיר ממוצע</th>
+                        <th>רמת מקצוע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>אוסצילוסקופ מתקדם</td>
+                        <td><div class="tool-image oscilloscope"></div></td>
+                        <td>בדיקת אותות מתקדמת עם ניתוח</td>
+                        <td>₪2000-10000</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מנתח לוגי</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>בדיקת מעגלים דיגיטליים</td>
+                        <td>₪1500-8000</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מנתח ספקטרום</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>בדיקת אותות RF</td>
+                        <td>₪3000-15000</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מכונת הלחמה SMD</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>הלחמה אוטומטית של רכיבים קטנים</td>
+                        <td>₪5000-25000</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מדפסת 3D</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>יצירת חלקים מותאמים</td>
+                        <td>₪2000-15000</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>מכונת CNC</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>עיבוד מדויק של לוחות</td>
+                        <td>₪10000-50000</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>📊 טבלת השוואת מחירים לפי רמה</h2>
+            <div class="price-range">
+                <div class="price-card budget">
+                    <h3>מתחילים</h3>
+                    <p>₪200-500</p>
+                    <p>כלים בסיסיים</p>
+                </div>
+                <div class="price-card mid-range">
+                    <h3>מתנסים</h3>
+                    <p>₪500-2000</p>
+                    <p>כלים מתקדמים</p>
+                </div>
+                <div class="price-card high-end">
+                    <h3>מקצוענים</h3>
+                    <p>₪2000-10000</p>
+                    <p>כלים מתקדמים מאוד</p>
+                </div>
+                <div class="price-card professional">
+                    <h3>תעשייה</h3>
+                    <p>₪10000+</p>
+                    <p>ציוד מקצועי</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>🔌 כלי הלחמה מפורטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>טמפרטורה</th>
+                        <th>הספק</th>
+                        <th>שימושים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מלחם בסיסי</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>קבועה</td>
+                        <td>25-40W</td>
+                        <td>הלחמה בסיסית</td>
+                        <td>₪30-100</td>
+                    </tr>
+                    <tr>
+                        <td>מלחם מתכוונן</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>200-480°C</td>
+                        <td>40-60W</td>
+                        <td>הלחמה מתקדמת</td>
+                        <td>₪80-200</td>
+                    </tr>
+                    <tr>
+                        <td>תחנת הלחמה</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>200-480°C</td>
+                        <td>60-80W</td>
+                        <td>הלחמה מקצועית</td>
+                        <td>₪200-800</td>
+                    </tr>
+                    <tr>
+                        <td>מלחם חם</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>200-450°C</td>
+                        <td>40-60W</td>
+                        <td>הלחמה SMD</td>
+                        <td>₪150-400</td>
+                    </tr>
+                    <tr>
+                        <td>מכונת הלחמה SMD</td>
+                        <td><div class="tool-image soldering"></div></td>
+                        <td>200-300°C</td>
+                        <td>מתכוונן</td>
+                        <td>הלחמה אוטומטית</td>
+                        <td>₪5000-25000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>📏 כלי מדידה מפורטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>דיוק</th>
+                        <th>טווח מדידה</th>
+                        <th>שימושים</th>
+                        <th>מחיר ממוצע</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מולטימטר בסיסי</td>
+                        <td><div class="tool-image multimeter"></div></td>
+                        <td>±1%</td>
+                        <td>מתח: 200mV-600V</td>
+                        <td>מדידות בסיסיות</td>
+                        <td>₪50-200</td>
+                    </tr>
+                    <tr>
+                        <td>מולטימטר מתקדם</td>
+                        <td><div class="tool-image multimeter"></div></td>
+                        <td>±0.1%</td>
+                        <td>מתח: 200mV-1000V</td>
+                        <td>מדידות מדויקות</td>
+                        <td>₪200-800</td>
+                    </tr>
+                    <tr>
+                        <td>אוסצילוסקופ דיגיטלי</td>
+                        <td><div class="tool-image oscilloscope"></div></td>
+                        <td>±2%</td>
+                        <td>20MHz-200MHz</td>
+                        <td>בדיקת אותות</td>
+                        <td>₪500-2000</td>
+                    </tr>
+                    <tr>
+                        <td>מחולל אותות</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>±1%</td>
+                        <td>1Hz-20MHz</td>
+                        <td>יצירת אותות</td>
+                        <td>₪300-1200</td>
+                    </tr>
+                    <tr>
+                        <td>קליבר דיגיטלי</td>
+                        <td><div class="tool-image measurement"></div></td>
+                        <td>±0.01mm</td>
+                        <td>0-150mm</td>
+                        <td>מדידות מדויקות</td>
+                        <td>₪100-400</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>🛠️ כלי יד מפורטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>גודל/סוג</th>
+                        <th>חומר</th>
+                        <th>שימושים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מברג פיליפס</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>PH0, PH1, PH2</td>
+                        <td>פלדה קשיחה</td>
+                        <td>פתיחת ברגים</td>
+                        <td>₪15-50</td>
+                    </tr>
+                    <tr>
+                        <td>מברג שטוח</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>3mm, 4mm, 5mm</td>
+                        <td>פלדה קשיחה</td>
+                        <td>פתיחת ברגים</td>
+                        <td>₪10-40</td>
+                    </tr>
+                    <tr>
+                        <td>צבת</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>6", 8", 10"</td>
+                        <td>פלדה קשיחה</td>
+                        <td>אחיזת רכיבים</td>
+                        <td>₪20-60</td>
+                    </tr>
+                    <tr>
+                        <td>צבת שטוחה</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>6", 8", 10"</td>
+                        <td>פלדה קשיחה</td>
+                        <td>אחיזת רכיבים שטוחים</td>
+                        <td>₪25-70</td>
+                    </tr>
+                    <tr>
+                        <td>חותך כבלים</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>6", 8"</td>
+                        <td>פלדה קשיחה</td>
+                        <td>חיתוך כבלים</td>
+                        <td>₪25-80</td>
+                    </tr>
+                    <tr>
+                        <td>מפשק</td>
+                        <td><div class="tool-image hand-tools"></div></td>
+                        <td>6", 8", 10"</td>
+                        <td>פלדה קשיחה</td>
+                        <td>פתיחת ברגים</td>
+                        <td>₪30-90</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>⚡ כלי חשמל מפורטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>כלי</th>
+                        <th>תמונה</th>
+                        <th>הספק</th>
+                        <th>מתח</th>
+                        <th>שימושים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מקדחה חשמלית</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>500-1000W</td>
+                        <td>220V</td>
+                        <td>קדיחת חורים</td>
+                        <td>₪150-600</td>
+                    </tr>
+                    <tr>
+                        <td>מקדחה ללא כבל</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>18-20V</td>
+                        <td>סוללה</td>
+                        <td>קדיחה ניידת</td>
+                        <td>₪300-1200</td>
+                    </tr>
+                    <tr>
+                        <td>מסור חשמלי</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>500-1500W</td>
+                        <td>220V</td>
+                        <td>חיתוך חומרים</td>
+                        <td>₪200-800</td>
+                    </tr>
+                    <tr>
+                        <td>מסור דיסק</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>1200-2000W</td>
+                        <td>220V</td>
+                        <td>חיתוך מדויק</td>
+                        <td>₪300-1000</td>
+                    </tr>
+                    <tr>
+                        <td>מכונת ריתוך</td>
+                        <td><div class="tool-image power-tools"></div></td>
+                        <td>2000-4000W</td>
+                        <td>220V</td>
+                        <td>ריתוך מתכת</td>
+                        <td>₪500-2000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>💻 ציוד מחשב ותוכנה</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ציוד</th>
+                        <th>תיאור</th>
+                        <th>דרישות מינימליות</th>
+                        <th>שימושים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מחשב אישי</td>
+                        <td>מחשב לעיצוב וסימולציה</td>
+                        <td>Intel i5, 8GB RAM</td>
+                        <td>עיצוב מעגלים</td>
+                        <td>₪2000-8000</td>
+                    </tr>
+                    <tr>
+                        <td>תוכנת עיצוב</td>
+                        <td>KiCad, Eagle, Altium</td>
+                        <td>Windows 10/11</td>
+                        <td>עיצוב PCB</td>
+                        <td>₪0-5000</td>
+                    </tr>
+                    <tr>
+                        <td>תוכנת סימולציה</td>
+                        <td>LTspice, Proteus</td>
+                        <td>Windows 10/11</td>
+                        <td>סימולציית מעגלים</td>
+                        <td>₪0-2000</td>
+                    </tr>
+                    <tr>
+                        <td>ארדואינו</td>
+                        <td>פיתוח ובדיקה</td>
+                        <td>USB 2.0</td>
+                        <td>בדיקת מעגלים</td>
+                        <td>₪30-100</td>
+                    </tr>
+                    <tr>
+                        <td>כרטיסי פיתוח</td>
+                        <td>ESP32, STM32</td>
+                        <td>USB 2.0</td>
+                        <td>בדיקת מערכות</td>
+                        <td>₪50-200</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>📦 ערכות כלים מומלצות</h2>
+            <div class="tool-comparison">
+                <div class="comparison-card">
+                    <h3>ערכת מתחילים</h3>
+                    <p><strong>מחיר:</strong> ₪300-500</p>
+                    <ul style="text-align: right;">
+                        <li>מולטימטר דיגיטלי</li>
+                        <li>מלחם בסיסי</li>
+                        <li>מברג פיליפס</li>
+                        <li>צבת</li>
+                        <li>חותך כבלים</li>
+                        <li>סרגל</li>
+                    </ul>
+                    <p><strong>מתאים ל:</strong> מתחילים, פרויקטים בסיסיים</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>ערכת מתנסים</h3>
+                    <p><strong>מחיר:</strong> ₪800-1500</p>
+                    <ul style="text-align: right;">
+                        <li>תחנת הלחמה</li>
+                        <li>אוסצילוסקופ דיגיטלי</li>
+                        <li>מחולל אותות</li>
+                        <li>מקדחה חשמלית</li>
+                        <li>כלי יד מתקדמים</li>
+                        <li>קליבר דיגיטלי</li>
+                    </ul>
+                    <p><strong>מתאים ל:</strong> מתנסים, פרויקטים מתקדמים</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>ערכת מקצוענים</h3>
+                    <p><strong>מחיר:</strong> ₪3000-8000</p>
+                    <ul style="text-align: right;">
+                        <li>אוסצילוסקופ מתקדם</li>
+                        <li>מנתח לוגי</li>
+                        <li>מכונת הלחמה SMD</li>
+                        <li>מדפסת 3D</li>
+                        <li>כלי חשמל מתקדמים</li>
+                        <li>ציוד מדידה מתקדם</li>
+                    </ul>
+                    <p><strong>מתאים ל:</strong> מקצוענים, פרויקטים מורכבים</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ כללי בטיחות חשובים</h3>
+            <ul>
+                <li><strong>כיבוי חשמל:</strong> כבה תמיד את החשמל לפני עבודה</li>
+                <li><strong>ביגוד מגן:</strong> השתמש בכפפות ומשקפי מגן</li>
+                <li><strong>אוורור:</strong> עבוד במקום מאוורר היטב</li>
+                <li><strong>בדיקת כלים:</strong> בדוק כלים לפני שימוש</li>
+                <li><strong>הדרכה:</strong> למד להשתמש בכלים לפני שימוש</li>
+                <li><strong>תחזוקה:</strong> תחזק כלים באופן קבוע</li>
+                <li><strong>אחסון:</strong> אחסן כלים במקום יבש ובטוח</li>
+                <li><strong>בדיקה:</strong> בדוק חיבורים לפני הפעלה</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>🛒 איפה לקנות כלים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>מקור</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                        <th>מחירים</th>
+                        <th>מתאים ל</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>חנויות אלקטרוניקה</td>
+                        <td>ייעוץ מקצועי, אחריות</td>
+                        <td>מחירים גבוהים</td>
+                        <td>גבוהים</td>
+                        <td>מקצוענים</td>
+                    </tr>
+                    <tr>
+                        <td>אינטרנט (ישראל)</td>
+                        <td>מחירים טובים, מבחר</td>
+                        <td>אין ייעוץ אישי</td>
+                        <td>בינוניים</td>
+                        <td>כולם</td>
+                    </tr>
+                    <tr>
+                        <td>אינטרנט (חו"ל)</td>
+                        <td>מחירים נמוכים מאוד</td>
+                        <td>משלוח ארוך, אחריות</td>
+                        <td>נמוכים</td>
+                        <td>מתחילים</td>
+                    </tr>
+                    <tr>
+                        <td>יד שנייה</td>
+                        <td>מחירים נמוכים</td>
+                        <td>אין אחריות, איכות</td>
+                        <td>נמוכים</td>
+                        <td>מתחילים</td>
+                    </tr>
+                    <tr>
+                        <td>השכרה</td>
+                        <td>אין עלות רכישה</td>
+                        <td>עלות שימוש גבוהה</td>
+                        <td>בינוניים</td>
+                        <td>שימוש חד פעמי</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>📚 משאבי למידה מומלצים</h2>
+            <ul>
+                <li><strong>YouTube:</strong> ערוצי אלקטרוניקה בעברית ואנגלית</li>
+                <li><strong>קורסים מקוונים:</strong> Udemy, Coursera, edX</li>
+                <li><strong>ספרים:</strong> ספרי אלקטרוניקה בסיסיים ומתקדמים</li>
+                <li><strong>פורומים:</strong> פורומי אלקטרוניקה ישראלים</li>
+                <li><strong>קבוצות פייסבוק:</strong> קבוצות אלקטרוניקה</li>
+                <li><strong>בלוגים:</strong> בלוגים מקצועיים בתחום</li>
+                <li><strong>סדנאות:</strong> סדנאות מעשיות</li>
+                <li><strong>קהילות:</strong> קהילות מקומיות</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - כלים וציוד</p>
+    </footer>
+</body>
+</html> 

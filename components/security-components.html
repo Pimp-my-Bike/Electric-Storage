@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>רכיבי אבטחה אלקטרוניים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .component-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .fuse { background: linear-gradient(45deg, #FFD700, #FFA500); }
+        .circuit-breaker { background: linear-gradient(45deg, #32CD32, #228B22); }
+        .surge-protector { background: linear-gradient(45deg, #4B0082, #800080); }
+        .varistor { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .gas-discharge { background: linear-gradient(45deg, #00CED1, #20B2AA); }
+        .thermal-protector { background: linear-gradient(45deg, #FF69B4, #DC143C); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .protection-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .protection-card {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+        }
+        .safety-warning {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .critical-warning {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: left;
+        }
+        .component-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        .installation-steps {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>רכיבי אבטחה אלקטרוניים - מדריך מקיף</h1>
+        <p>מידע מפורט על מפסקי מגן, נתיכים, מגני מתח ורכיבי הגנה</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+            <a href="displays.html">צגים</a>
+            <a href="measurement-tools.html">כלי מדידה</a>
+            <a href="rf-modules.html">רכיבי RF</a>
+            <a href="communication-modules.html">רכיבי תקשורת</a>
+            <a href="cables-wires.html">כבלים ומוליכים</a>
+            <a href="tools-equipment.html">כלים וציוד</a>
+        </div>
+
+        <div class="critical-warning">
+            <h3>⚠️ אזהרה קריטית - בטיחות חשמלית</h3>
+            <p><strong>עבודה עם רכיבי אבטחה חשמליים דורשת ידע מקצועי!</strong></p>
+            <ul>
+                <li>אל תנסה לתקן או להחליף רכיבי אבטחה ללא הכשרה מתאימה</li>
+                <li>כבה תמיד את החשמל לפני כל עבודה</li>
+                <li>השתמש בציוד מגן מתאים</li>
+                <li>במקרה של ספק, פנה לאיש מקצוע מוסמך</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>סוגי רכיבי אבטחה עיקריים</h2>
+            <div class="protection-types">
+                <div class="protection-card">
+                    <h3>🔌 נתיכים (Fuses)</h3>
+                    <div class="component-image fuse"></div>
+                    <p><strong>תפקיד:</strong> הגנה מפני זרם יתר</p>
+                    <p><strong>עיקרון:</strong> התכה בעת זרם גבוה</p>
+                    <p><strong>שימוש:</strong> הגנה חד פעמית</p>
+                </div>
+                <div class="protection-card">
+                    <h3>⚡ מפסקי מגן (Circuit Breakers)</h3>
+                    <div class="component-image circuit-breaker"></div>
+                    <p><strong>תפקיד:</strong> הגנה מפני זרם יתר</p>
+                    <p><strong>עיקרון:</strong> ניתוק אוטומטי</p>
+                    <p><strong>שימוש:</strong> הגנה רב פעמית</p>
+                </div>
+                <div class="protection-card">
+                    <h3>🛡️ מגני מתח (Surge Protectors)</h3>
+                    <div class="component-image surge-protector"></div>
+                    <p><strong>תפקיד:</strong> הגנה מפני מתח יתר</p>
+                    <p><strong>עיקרון:</strong> הולכת מתח גבוה לאדמה</p>
+                    <p><strong>שימוש:</strong> הגנה מפני ברקים</p>
+                </div>
+                <div class="protection-card">
+                    <h3>⚡ מגני מתח (Varistors)</h3>
+                    <div class="component-image varistor"></div>
+                    <p><strong>תפקיד:</strong> הגנה מפני מתח יתר</p>
+                    <p><strong>עיקרון:</strong> שינוי התנגדות</p>
+                    <p><strong>שימוש:</strong> הגנה אלקטרונית</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>נתיכים (Fuses) - סוגים ומפרטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג נתיך</th>
+                        <th>תמונה</th>
+                        <th>זרם נומינלי</th>
+                        <th>מתח עבודה</th>
+                        <th>זמן התכה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>נתיך זכוכית</td>
+                        <td><div class="component-image fuse"></div></td>
+                        <td>100mA - 10A</td>
+                        <td>250V</td>
+                        <td>מהיר</td>
+                        <td>מעגלים אלקטרוניים</td>
+                        <td>₪2-10</td>
+                    </tr>
+                    <tr>
+                        <td>נתיך קרמי</td>
+                        <td><div class="component-image fuse"></div></td>
+                        <td>1A - 100A</td>
+                        <td>250V-600V</td>
+                        <td>בינוני</td>
+                        <td>מעגלי כוח</td>
+                        <td>₪5-20</td>
+                    </tr>
+                    <tr>
+                        <td>נתיך SMD</td>
+                        <td><div class="component-image fuse"></div></td>
+                        <td>50mA - 5A</td>
+                        <td>32V-125V</td>
+                        <td>מהיר מאוד</td>
+                        <td>מעגלים מודפסים</td>
+                        <td>₪1-8</td>
+                    </tr>
+                    <tr>
+                        <td>נתיך תרמי</td>
+                        <td><div class="component-image fuse"></div></td>
+                        <td>1A - 20A</td>
+                        <td>250V</td>
+                        <td>איטי</td>
+                        <td>מנועים ומכשירים</td>
+                        <td>₪8-25</td>
+                    </tr>
+                    <tr>
+                        <td>נתיך גבוה</td>
+                        <td><div class="component-image fuse"></div></td>
+                        <td>100A - 1000A</td>
+                        <td>600V-1000V</td>
+                        <td>מהיר</td>
+                        <td>לוחות חשמל ראשיים</td>
+                        <td>₪20-100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מפסקי מגן (Circuit Breakers) - סוגים ומפרטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מפסק</th>
+                        <th>תמונה</th>
+                        <th>זרם נומינלי</th>
+                        <th>מתח עבודה</th>
+                        <th>סוג הגנה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מפסק תרמי</td>
+                        <td><div class="component-image circuit-breaker"></div></td>
+                        <td>1A - 100A</td>
+                        <td>230V-400V</td>
+                        <td>זרם יתר</td>
+                        <td>מעגלי כוח ביתיים</td>
+                        <td>₪30-150</td>
+                    </tr>
+                    <tr>
+                        <td>מפסק מגנטי</td>
+                        <td><div class="component-image circuit-breaker"></div></td>
+                        <td>1A - 100A</td>
+                        <td>230V-400V</td>
+                        <td>זרם קצר</td>
+                        <td>מעגלי כוח תעשייתיים</td>
+                        <td>₪50-200</td>
+                    </tr>
+                    <tr>
+                        <td>מפסק דיפרנציאלי</td>
+                        <td><div class="component-image circuit-breaker"></div></td>
+                        <td>16A - 100A</td>
+                        <td>230V-400V</td>
+                        <td>דליפת זרם</td>
+                        <td>מעגלי כוח רגישים</td>
+                        <td>₪100-300</td>
+                    </tr>
+                    <tr>
+                        <td>מפסק מיני</td>
+                        <td><div class="component-image circuit-breaker"></div></td>
+                        <td>1A - 63A</td>
+                        <td>230V-400V</td>
+                        <td>זרם יתר</td>
+                        <td>לוחות חשמל קטנים</td>
+                        <td>₪20-100</td>
+                    </tr>
+                    <tr>
+                        <td>מפסק תעשייתי</td>
+                        <td><div class="component-image circuit-breaker"></div></td>
+                        <td>100A - 2000A</td>
+                        <td>400V-1000V</td>
+                        <td>זרם יתר וקצר</td>
+                        <td>לוחות חשמל ראשיים</td>
+                        <td>₪200-1000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מגני מתח (Surge Protectors) - סוגים ומפרטים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>סוג מגן</th>
+                        <th>תמונה</th>
+                        <th>מתח הגנה</th>
+                        <th>זרם הגנה</th>
+                        <th>זמן תגובה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מגן מתח ביתי</td>
+                        <td><div class="component-image surge-protector"></div></td>
+                        <td>6KV - 20KV</td>
+                        <td>3KA - 10KA</td>
+                        <td>1-10ns</td>
+                        <td>מחשבים ומכשירים ביתיים</td>
+                        <td>₪50-200</td>
+                    </tr>
+                    <tr>
+                        <td>מגן מתח תעשייתי</td>
+                        <td><div class="component-image surge-protector"></div></td>
+                        <td>20KV - 100KV</td>
+                        <td>10KA - 100KA</td>
+                        <td>1-5ns</td>
+                        <td>מכונות תעשייתיות</td>
+                        <td>₪200-1000</td>
+                    </tr>
+                    <tr>
+                        <td>מגן מתח תקשורת</td>
+                        <td><div class="component-image surge-protector"></div></td>
+                        <td>1KV - 10KV</td>
+                        <td>1KA - 5KA</td>
+                        <td>1-10ns</td>
+                        <td>קווי תקשורת</td>
+                        <td>₪100-500</td>
+                    </tr>
+                    <tr>
+                        <td>מגן מתח אופטי</td>
+                        <td><div class="component-image surge-protector"></div></td>
+                        <td>5KV - 20KV</td>
+                        <td>2KA - 10KA</td>
+                        <td>1-5ns</td>
+                        <td>קווי תקשורת אופטיים</td>
+                        <td>₪150-800</td>
+                    </tr>
+                    <tr>
+                        <td>מגן מתח מודולרי</td>
+                        <td><div class="component-image surge-protector"></div></td>
+                        <td>10KV - 40KV</td>
+                        <td>5KA - 20KA</td>
+                        <td>1-10ns</td>
+                        <td>לוחות חשמל</td>
+                        <td>₪80-400</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>רכיבי הגנה נוספים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>רכיב הגנה</th>
+                        <th>תמונה</th>
+                        <th>עיקרון פעולה</th>
+                        <th>שימושים נפוצים</th>
+                        <th>יתרונות</th>
+                        <th>חסרונות</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Varistor (MOV)</td>
+                        <td><div class="component-image varistor"></div></td>
+                        <td>שינוי התנגדות במתח גבוה</td>
+                        <td>מעגלי כוח אלקטרוניים</td>
+                        <td>מהיר, זול</td>
+                        <td>התכלות עם הזמן</td>
+                        <td>₪5-25</td>
+                    </tr>
+                    <tr>
+                        <td>Gas Discharge Tube</td>
+                        <td><div class="component-image gas-discharge"></div></td>
+                        <td>הדלקה במתח גבוה</td>
+                        <td>קווי תקשורת</td>
+                        <td>עמיד, מהיר</td>
+                        <td>זמן התאוששות</td>
+                        <td>₪10-50</td>
+                    </tr>
+                    <tr>
+                        <td>Thermal Protector</td>
+                        <td><div class="component-image thermal-protector"></div></td>
+                        <td>ניתוק בטמפרטורה גבוהה</td>
+                        <td>מנועים ומכשירים</td>
+                        <td>אמין, פשוט</td>
+                        <td>חד פעמי</td>
+                        <td>₪15-60</td>
+                    </tr>
+                    <tr>
+                        <td>PTC Thermistor</td>
+                        <td><div class="component-image thermal-protector"></div></td>
+                        <td>עליית התנגדות בטמפרטורה</td>
+                        <td>מעגלי הגנה</td>
+                        <td>התאוששות אוטומטית</td>
+                        <td>זמן תגובה איטי</td>
+                        <td>₪8-30</td>
+                    </tr>
+                    <tr>
+                        <td>TVS Diode</td>
+                        <td><div class="component-image varistor"></div></td>
+                        <td>הולכה במתח גבוה</td>
+                        <td>מעגלים רגישים</td>
+                        <td>מהיר מאוד, מדויק</td>
+                        <td>זרם הגנה נמוך</td>
+                        <td>₪3-15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>בחירת רכיבי הגנה נכונים</h2>
+            <div class="component-comparison">
+                <div class="comparison-card">
+                    <h3>הגנה מפני זרם יתר</h3>
+                    <p><strong>זרם נמוך (עד 10A):</strong></p>
+                    <ul style="text-align: right;">
+                        <li>נתיך זכוכית - זול ופשוט</li>
+                        <li>נתיך SMD - למעגלים מודפסים</li>
+                        <li>מפסק מיני - הגנה רב פעמית</li>
+                    </ul>
+                    <p><strong>זרם גבוה (10A-100A):</strong></p>
+                    <ul style="text-align: right;">
+                        <li>מפסק תרמי - הגנה אמינה</li>
+                        <li>נתיך קרמי - עמידות גבוהה</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>הגנה מפני מתח יתר</h3>
+                    <p><strong>מתח נמוך (עד 50V):</strong></p>
+                    <ul style="text-align: right;">
+                        <li>TVS Diode - הגנה מדויקת</li>
+                        <li>Varistor - הגנה רחבה</li>
+                    </ul>
+                    <p><strong>מתח גבוה (50V+):</strong></p>
+                    <ul style="text-align: right;">
+                        <li>מגן מתח - הגנה מקיפה</li>
+                        <li>Gas Discharge Tube - הגנה חזקה</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>הגנה תרמית</h3>
+                    <p><strong>מכשירים ביתיים:</strong></p>
+                    <ul style="text-align: right;">
+                        <li>Thermal Protector - הגנה פשוטה</li>
+                        <li>PTC Thermistor - התאוששות אוטומטית</li>
+                    </ul>
+                    <p><strong>מכונות תעשייתיות:</strong></p>
+                    <ul style="text-align: right;">
+                        <li>מפסק תרמי - הגנה אמינה</li>
+                        <li>מערכת בקרת טמפרטורה</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="installation-steps">
+            <h2>📋 שלבי התקנה בטוחים</h2>
+            <ol style="text-align: right;">
+                <li><strong>כיבוי חשמל:</strong> כבה את כל מקורות החשמל</li>
+                <li><strong>בדיקת מתח:</strong> בדוק שאין מתח עם מולטימטר</li>
+                <li><strong>הכנת כלים:</strong> השתמש בכלים מבודדים</li>
+                <li><strong>התקנת רכיב:</strong> התקן לפי הוראות היצרן</li>
+                <li><strong>בדיקת חיבורים:</strong> בדוק את כל החיבורים</li>
+                <li><strong>בדיקת פעולה:</strong> בדוק את פעולת ההגנה</li>
+                <li><strong>תיעוד:</strong> תיעד את ההתקנה</li>
+            </ol>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלי הגנה בסיסיים</h2>
+            <div class="circuit-diagram">
+                <h3>מעגל הגנה בסיסי עם נתיך ו-Varistor</h3>
+                <pre>
+                    VCC (מתח אספקה)
+                        |
+                    [נתיך]
+                        |
+                    [Varistor]----[GND]
+                        |
+                    [מעגל מוגן]
+                        |
+                    GND
+                </pre>
+                <p><strong>רכיבים:</strong></p>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>נתיך - הגנה מפני זרם יתר</li>
+                    <li>Varistor - הגנה מפני מתח יתר</li>
+                    <li>קבל עדכון - סינון רעשים</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>בדיקת רכיבי הגנה</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>רכיב</th>
+                        <th>שיטת בדיקה</th>
+                        <th>ערכי בדיקה</th>
+                        <th>סימני תקלה</th>
+                        <th>פעולת תיקון</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>נתיך</td>
+                        <td>בדיקת המשכיות</td>
+                        <td>התנגדות נמוכה</td>
+                        <td>התנגדות גבוהה או אין</td>
+                        <td>החלפה</td>
+                    </tr>
+                    <tr>
+                        <td>מפסק מגן</td>
+                        <td>בדיקת פעולה</td>
+                        <td>ניתוק וסגירה</td>
+                        <td>לא נפתח או לא נסגר</td>
+                        <td>החלפה</td>
+                    </tr>
+                    <tr>
+                        <td>Varistor</td>
+                        <td>בדיקת התנגדות</td>
+                        <td>התנגדות גבוהה</td>
+                        <td>התנגדות נמוכה</td>
+                        <td>החלפה</td>
+                    </tr>
+                    <tr>
+                        <td>מגן מתח</td>
+                        <td>בדיקת מתח הגנה</td>
+                        <td>מתח הגנה תקין</td>
+                        <td>מתח הגנה נמוך</td>
+                        <td>החלפה</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="safety-warning">
+            <h3>🔒 כללי בטיחות חשובים</h3>
+            <ul>
+                <li><strong>אל תנסה לתקן:</strong> רכיבי הגנה פגומים</li>
+                <li><strong>החלף תמיד:</strong> רכיבים פגומים</li>
+                <li><strong>בדוק תקופתית:</strong> את פעולת ההגנה</li>
+                <li><strong>תיעד:</strong> כל החלפה או תיקון</li>
+                <li><strong>השתמש:</strong> ברכיבים מקוריים בלבד</li>
+                <li><strong>בדוק:</strong> את המתח והזרם לפני התקנה</li>
+                <li><strong>התקן:</strong> לפי הוראות היצרן</li>
+                <li><strong>בדוק:</strong> את פעולת ההגנה לאחר התקנה</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>תחזוקה מונעת</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>רכיב</th>
+                        <th>תדירות בדיקה</th>
+                        <th>פעולות בדיקה</th>
+                        <th>פעולות תחזוקה</th>
+                        <th>זמן החלפה מומלץ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>נתיכים</td>
+                        <td>שנתי</td>
+                        <td>בדיקת התנגדות</td>
+                        <td>ניקוי מגעים</td>
+                        <td>עם פגיעה</td>
+                    </tr>
+                    <tr>
+                        <td>מפסקי מגן</td>
+                        <td>שנתי</td>
+                        <td>בדיקת פעולה</td>
+                        <td>ניקוי מגעים</td>
+                        <td>10-15 שנים</td>
+                    </tr>
+                    <tr>
+                        <td>מגני מתח</td>
+                        <td>שנתי</td>
+                        <td>בדיקת מתח הגנה</td>
+                        <td>בדיקת חיבורים</td>
+                        <td>5-10 שנים</td>
+                    </tr>
+                    <tr>
+                        <td>Varistors</td>
+                        <td>שנתי</td>
+                        <td>בדיקת התנגדות</td>
+                        <td>בדיקת חיבורים</td>
+                        <td>3-5 שנים</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - רכיבי אבטחה</p>
+    </footer>
+</body>
+</html> 

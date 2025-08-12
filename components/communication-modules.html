@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>רכיבי תקשורת תעשייתיים - מדריך מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #004466;
+            color: white;
+        }
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #004466;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid #004466;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #004466;
+            color: white;
+        }
+        .comm-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: block;
+            position: relative;
+        }
+        .rs485 { background: linear-gradient(45deg, #8B4513, #D2691E); }
+        .can { background: linear-gradient(45deg, #000000, #333333); }
+        .ethernet { background: linear-gradient(45deg, #4B0082, #800080); }
+        .modbus { background: linear-gradient(45deg, #32CD32, #228B22); }
+        .circuit-diagram {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pin-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .pin-card {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+            text-align: center;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: left;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .protocol-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .protocol-card {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #004466;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>רכיבי תקשורת תעשייתיים - מדריך מקיף</h1>
+        <p>מידע מפורט על פרוטוקולי תקשורת RS485, CAN, Ethernet ו-Modbus</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="../index.html">← חזרה לדף הבית</a>
+            <a href="resistors.html">נגדים</a>
+            <a href="capacitors.html">קבלים</a>
+            <a href="transistors.html">טרנזיסטורים</a>
+            <a href="ics.html">מעגלים משולבים</a>
+            <a href="connectors.html">מחברים</a>
+            <a href="sensors.html">חיישנים</a>
+            <a href="power-supplies.html">ספקי כוח</a>
+            <a href="motors.html">מנועים</a>
+            <a href="displays.html">צגים</a>
+            <a href="measurement-tools.html">כלי מדידה</a>
+            <a href="rf-modules.html">רכיבי RF</a>
+        </div>
+
+        <div class="info-section">
+            <h2>פרוטוקולי תקשורת עיקריים</h2>
+            <div class="protocol-comparison">
+                <div class="protocol-card">
+                    <h3>RS485</h3>
+                    <p><strong>טווח:</strong> עד 1200 מטר</p>
+                    <p><strong>מהירות:</strong> עד 10Mbps</p>
+                    <p><strong>ערוצים:</strong> 1 (דו-כיווני)</p>
+                    <p><strong>שימושים:</strong> תעשייה, אוטומציה</p>
+                </div>
+                <div class="protocol-card">
+                    <h3>CAN</h3>
+                    <p><strong>טווח:</strong> עד 40 מטר</p>
+                    <p><strong>מהירות:</strong> עד 1Mbps</p>
+                    <p><strong>ערוצים:</strong> 1 (רב-נקודות)</p>
+                    <p><strong>שימושים:</strong> רכב, תעשייה</p>
+                </div>
+                <div class="protocol-card">
+                    <h3>Ethernet</h3>
+                    <p><strong>טווח:</strong> עד 100 מטר</p>
+                    <p><strong>מהירות:</strong> עד 100Gbps</p>
+                    <p><strong>ערוצים:</strong> רב-ערוצי</p>
+                    <p><strong>שימושים:</strong> רשתות מחשבים</p>
+                </div>
+                <div class="protocol-card">
+                    <h3>Modbus</h3>
+                    <p><strong>טווח:</strong> תלוי במדיום</p>
+                    <p><strong>מהירות:</strong> עד 115kbps</p>
+                    <p><strong>ערוצים:</strong> 1 (רב-נקודות)</p>
+                    <p><strong>שימושים:</strong> SCADA, בקרה</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מודולי RS485</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>תמונה</th>
+                        <th>מתח עבודה</th>
+                        <th>מהירות מקסימלית</th>
+                        <th>טווח תקשורת</th>
+                        <th>ממשק</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAX485</td>
+                        <td><div class="comm-image rs485"></div></td>
+                        <td>5V</td>
+                        <td>2.5Mbps</td>
+                        <td>1200 מטר</td>
+                        <td>UART</td>
+                        <td>₪15-30</td>
+                    </tr>
+                    <tr>
+                        <td>SN75176</td>
+                        <td><div class="comm-image rs485"></div></td>
+                        <td>5V</td>
+                        <td>10Mbps</td>
+                        <td>1200 מטר</td>
+                        <td>UART</td>
+                        <td>₪20-40</td>
+                    </tr>
+                    <tr>
+                        <td>ADM485</td>
+                        <td><div class="comm-image rs485"></div></td>
+                        <td>3.3V</td>
+                        <td>16Mbps</td>
+                        <td>1200 מטר</td>
+                        <td>UART</td>
+                        <td>₪25-50</td>
+                    </tr>
+                    <tr>
+                        <td>SP3485</td>
+                        <td><div class="comm-image rs485"></div></td>
+                        <td>3.3V</td>
+                        <td>10Mbps</td>
+                        <td>1200 מטר</td>
+                        <td>UART</td>
+                        <td>₪20-40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מודולי CAN</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>תמונה</th>
+                        <th>מתח עבודה</th>
+                        <th>מהירות מקסימלית</th>
+                        <th>מספר ערוצים</th>
+                        <th>ממשק</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MCP2515</td>
+                        <td><div class="comm-image can"></div></td>
+                        <td>2.7V-5.5V</td>
+                        <td>1Mbps</td>
+                        <td>1</td>
+                        <td>SPI</td>
+                        <td>₪30-60</td>
+                    </tr>
+                    <tr>
+                        <td>MCP2562</td>
+                        <td><div class="comm-image can"></div></td>
+                        <td>2.7V-5.5V</td>
+                        <td>1Mbps</td>
+                        <td>1</td>
+                        <td>SPI</td>
+                        <td>₪35-70</td>
+                    </tr>
+                    <tr>
+                        <td>SN65HVD230</td>
+                        <td><div class="comm-image can"></div></td>
+                        <td>3.3V</td>
+                        <td>1Mbps</td>
+                        <td>1</td>
+                        <td>UART</td>
+                        <td>₪40-80</td>
+                    </tr>
+                    <tr>
+                        <td>TCAN1042</td>
+                        <td><div class="comm-image can"></div></td>
+                        <td>3.3V</td>
+                        <td>5Mbps</td>
+                        <td>1</td>
+                        <td>UART</td>
+                        <td>₪50-100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>מודולי Ethernet</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>דגם</th>
+                        <th>תמונה</th>
+                        <th>מתח עבודה</th>
+                        <th>מהירות</th>
+                        <th>ממשק</th>
+                        <th>תכונות מיוחדות</th>
+                        <th>מחיר ממוצע</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>W5500</td>
+                        <td><div class="comm-image ethernet"></div></td>
+                        <td>3.3V</td>
+                        <td>10/100Mbps</td>
+                        <td>SPI</td>
+                        <td>TCP/IP Stack מובנה</td>
+                        <td>₪40-80</td>
+                    </tr>
+                    <tr>
+                        <td>ENC28J60</td>
+                        <td><div class="comm-image ethernet"></div></td>
+                        <td>3.3V</td>
+                        <td>10Mbps</td>
+                        <td>SPI</td>
+                        <td>זול, פשוט</td>
+                        <td>₪25-50</td>
+                    </tr>
+                    <tr>
+                        <td>LAN8720</td>
+                        <td><div class="comm-image ethernet"></div></td>
+                        <td>3.3V</td>
+                        <td>10/100Mbps</td>
+                        <td>RMII</td>
+                        <td>מהיר, יעיל</td>
+                        <td>₪30-60</td>
+                    </tr>
+                    <tr>
+                        <td>DP83848</td>
+                        <td><div class="comm-image ethernet"></div></td>
+                        <td>3.3V</td>
+                        <td>10/100Mbps</td>
+                        <td>MII/RMII</td>
+                        <td>מקצועי, יציב</td>
+                        <td>₪50-100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>חיבורי מודולי תקשורת</h2>
+            
+            <h3>MAX485 (RS485)</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VCC</h4>
+                    <p>מתח אספקה</p>
+                    <p>5V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>GND</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>RO</h4>
+                    <p>קלט נתונים</p>
+                    <p>Receiver Output</p>
+                </div>
+                <div class="pin-card">
+                    <h4>RE</h4>
+                    <p>הפעלת קלט</p>
+                    <p>Receiver Enable</p>
+                </div>
+                <div class="pin-card">
+                    <h4>DE</h4>
+                    <p>הפעלת פלט</p>
+                    <p>Driver Enable</p>
+                </div>
+                <div class="pin-card">
+                    <h4>DI</h4>
+                    <p>פלט נתונים</p>
+                    <p>Driver Input</p>
+                </div>
+                <div class="pin-card">
+                    <h4>A</h4>
+                    <p>קו חיובי</p>
+                    <p>Positive Line</p>
+                </div>
+                <div class="pin-card">
+                    <h4>B</h4>
+                    <p>קו שלילי</p>
+                    <p>Negative Line</p>
+                </div>
+            </div>
+
+            <h3>MCP2515 (CAN)</h3>
+            <div class="pin-layout">
+                <div class="pin-card">
+                    <h4>VDD</h4>
+                    <p>מתח אספקה</p>
+                    <p>2.7V-5.5V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>VSS</h4>
+                    <p>אדמה</p>
+                    <p>0V</p>
+                </div>
+                <div class="pin-card">
+                    <h4>CS</h4>
+                    <p>בחירת שבב</p>
+                    <p>Chip Select</p>
+                </div>
+                <div class="pin-card">
+                    <h4>SO</h4>
+                    <p>נתונים</p>
+                    <p>SPI Data Out</p>
+                </div>
+                <div class="pin-card">
+                    <h4>SI</h4>
+                    <p>נתונים</p>
+                    <p>SPI Data In</p>
+                </div>
+                <div class="pin-card">
+                    <h4>SCK</h4>
+                    <p>שעון</p>
+                    <p>SPI Clock</p>
+                </div>
+                <div class="pin-card">
+                    <h4>INT</h4>
+                    <p>הפרעה</p>
+                    <p>Interrupt</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>מעגלים בסיסיים עם מודולי תקשורת</h2>
+            
+            <h3>MAX485 עם Arduino</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>MAX485 - מודול RS485</li>
+                    <li>Arduino (כל דגם)</li>
+                    <li>נגד 120Ω (נגד סיום)</li>
+                    <li>קבל 0.1µF (עדכון)</li>
+                    <li>כבלים זוגיים</li>
+                </ul>
+            </div>
+
+            <h3>MCP2515 עם Arduino</h3>
+            <div class="circuit-diagram">
+                <h4>רכיבים נדרשים:</h4>
+                <ul style="text-align: right; display: inline-block;">
+                    <li>MCP2515 - מודול CAN</li>
+                    <li>Arduino (כל דגם)</li>
+                    <li>נגד 120Ω (נגד סיום)</li>
+                    <li>קבל 0.1µF (עדכון)</li>
+                    <li>כבלים זוגיים</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>דוגמאות קוד</h2>
+            
+            <h3>קוד Arduino - תקשורת RS485</h3>
+            <div class="code-example">
+                <pre>
+#include &lt;SoftwareSerial.h&gt;
+
+SoftwareSerial RS485(2, 3); // RX, TX
+const int DE_PIN = 4;       // Driver Enable
+
+void setup() {
+  Serial.begin(9600);
+  RS485.begin(9600);
+  pinMode(DE_PIN, OUTPUT);
+}
+
+void sendData(String message) {
+  digitalWrite(DE_PIN, HIGH);  // הפעל שידור
+  delay(1);
+  RS485.println(message);
+  delay(1);
+  digitalWrite(DE_PIN, LOW);   // כבה שידור
+}
+
+void loop() {
+  if (RS485.available()) {
+    String received = RS485.readString();
+    Serial.println("התקבל: " + received);
+  }
+  
+  if (Serial.available()) {
+    String toSend = Serial.readString();
+    sendData(toSend);
+  }
+}
+                </pre>
+            </div>
+
+            <h3>קוד Arduino - תקשורת CAN</h3>
+            <div class="code-example">
+                <pre>
+#include &lt;SPI.h&gt;
+#include &lt;mcp2515.h&gt;
+
+struct can_frame canMsg;
+MCP2515 mcp2515(10); // CS pin
+
+void setup() {
+  Serial.begin(115200);
+  SPI.begin();
+  
+  mcp2515.reset();
+  mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ);
+  mcp2515.setNormalMode();
+  
+  Serial.println("CAN מוכן!");
+}
+
+void loop() {
+  if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
+    Serial.print("ID: 0x");
+    Serial.print(canMsg.can_id, HEX);
+    Serial.print(" Data: ");
+    
+    for (int i = 0; i < canMsg.can_dlc; i++) {
+      Serial.print(canMsg.data[i], HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
+  }
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>פרוטוקול Modbus</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>גרסה</th>
+                        <th>מדיום תקשורת</th>
+                        <th>מהירות מקסימלית</th>
+                        <th>טווח תקשורת</th>
+                        <th>שימושים נפוצים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modbus RTU</td>
+                        <td>RS485/RS232</td>
+                        <td>115.2kbps</td>
+                        <td>1200 מטר</td>
+                        <td>בקרת מכונות, חיישנים</td>
+                    </tr>
+                    <tr>
+                        <td>Modbus ASCII</td>
+                        <td>RS485/RS232</td>
+                        <td>19.2kbps</td>
+                        <td>1200 מטר</td>
+                        <td>דיבוג, בדיקות</td>
+                    </tr>
+                    <tr>
+                        <td>Modbus TCP</td>
+                        <td>Ethernet</td>
+                        <td>100Mbps</td>
+                        <td>100 מטר</td>
+                        <td>רשתות תעשייתיות</td>
+                    </tr>
+                    <tr>
+                        <td>Modbus Plus</td>
+                        <td>RS485</td>
+                        <td>1Mbps</td>
+                        <td>600 מטר</td>
+                        <td>בקרה מתקדמת</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>ספריות Arduino נפוצות</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>פרוטוקול</th>
+                        <th>ספרייה</th>
+                        <th>הורדה</th>
+                        <th>דוגמאות</th>
+                        <th>תיעוד</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RS485</td>
+                        <td>SoftwareSerial</td>
+                        <td>מובנה</td>
+                        <td>5+ דוגמאות</td>
+                        <td>מלא</td>
+                    </tr>
+                    <tr>
+                        <td>CAN</td>
+                        <td>mcp2515</td>
+                        <td>Library Manager</td>
+                        <td>8 דוגמאות</td>
+                        <td>טוב</td>
+                    </tr>
+                    <tr>
+                        <td>Ethernet</td>
+                        <td>Ethernet</td>
+                        <td>מובנה</td>
+                        <td>10+ דוגמאות</td>
+                        <td>מלא</td>
+                    </tr>
+                    <tr>
+                        <td>Modbus</td>
+                        <td>ModbusRtu</td>
+                        <td>Library Manager</td>
+                        <td>6 דוגמאות</td>
+                        <td>טוב</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ אזהרות חשובות</h3>
+            <ul>
+                <li><strong>נגדי סיום:</strong> השתמש תמיד בנגדי סיום מתאימים</li>
+                <li><strong>כבלים:</strong> השתמש בכבלים זוגיים מעוותים</li>
+                <li><strong>מתח:</strong> בדוק תמיד את מתח העבודה</li>
+                <li><strong>אדמה:</strong> וודא חיבור אדמה נכון</li>
+                <li><strong>מהירות:</strong> אל תחרוג מהמהירות המקסימלית</li>
+                <li><strong>מרחק:</strong> שים לב למגבלות המרחק</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>טיפים לעבודה עם מודולי תקשורת</h2>
+            <ul>
+                <li><strong>נגדי סיום:</strong> תמיד השתמש בנגדי סיום בקצוות הרשת</li>
+                <li><strong>כבלים:</strong> השתמש בכבלים איכותיים עם בידוד טוב</li>
+                <li><strong>מרחק:</strong> שים לב למגבלות המרחק של כל פרוטוקול</li>
+                <li><strong>מהירות:</strong> התחל במהירות נמוכה ועלה בהדרגה</li>
+                <li><strong>עדכון:</strong> השתמש בקבלי עדכון קרוב למודול</li>
+                <li><strong>בדיקה:</strong> בדוק את החיבורים עם מולטימטר</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>יישומים נפוצים</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>יישום</th>
+                        <th>פרוטוקול מומלץ</th>
+                        <th>טווח נדרש</th>
+                        <th>מהירות נדרשת</td>
+                        <th>דוגמאות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>בקרת מכונות</td>
+                        <td>Modbus RTU</td>
+                        <td>100-500 מטר</td>
+                        <td>9600-115200 bps</td>
+                        <td>מכונות ייצור, רובוטים</td>
+                    </tr>
+                    <tr>
+                        <td>רכב</td>
+                        <td>CAN</td>
+                        <td>10-40 מטר</td>
+                        <td>125k-1M bps</td>
+                        <td>מנוע, מערכות בטיחות</td>
+                    </tr>
+                    <tr>
+                        <td>בניין חכם</td>
+                        <td>RS485</td>
+                        <td>100-1000 מטר</td>
+                        <td>9600-115200 bps</td>
+                        <td>תאורה, חימום, אבטחה</td>
+                    </tr>
+                    <tr>
+                        <td>רשתות תעשייתיות</td>
+                        <td>Ethernet</td>
+                        <td>50-100 מטר</td>
+                        <td>100M-1G bps</td>
+                        <td>SCADA, בקרה מרכזית</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 מדריך רכיבים אלקטרוניים - רכיבי תקשורת</p>
+    </footer>
+</body>
+</html> 
